@@ -1,0 +1,13 @@
+CC0 1.0 Universal — Public Domain Dedication
+
+The contents of data/ are dedicated to the public domain under CC0 1.0. To the
+extent possible under law, the contributors have waived all copyright and
+related or neighbouring rights to the data in this directory.
+
+Full text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Rationale: these are facts about published software, gathered from public
+sources. Attribution is welcome but never required, and downstream reuse should
+not have to reason about this project's licence at all. The source URLs in the
+data point to material owned by its respective authors; the dedication covers
+this compilation and its descriptions, not the sources it links to.

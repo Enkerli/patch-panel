@@ -1,0 +1,35 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No npm install: the validator is dependency-free so that a contributor
+      # can run exactly what CI runs, locally, with nothing set up.
+      - name: Validate data against schema and vocabulary
+        run: node tools/validate.mjs
+
+      - name: Render the page headlessly and count what came out
+        run: node tools/render-test.mjs
+
+      - name: Check every source URL is well-formed
+        run: |
+          node -e "
+            const d=require('./data/systems.json');
+            const bad=[];
+            for(const s of d.systems)
+              for(const r of [...s.claims,...s.niceties])
+                if(r.source && !/^https:\/\/[^ ]+\$/.test(r.source)) bad.push(s.id+': '+r.source);
+            if(bad.length){console.error('Malformed or non-https sources:');bad.forEach(b=>console.error('  '+b));process.exit(1)}
+            console.log('All source URLs well-formed.');
+          "

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/enkerli/patch-panel/blob/main/data/schema.json",
+  "title": "Patch Panel — modular systems",
+  "description": "One record per specimen. Enumerated values must also appear in data/vocabulary.json; tools/validate.mjs checks that the two agree.",
+  "type": "object",
+  "required": ["version", "updated", "systems"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "updated": { "type": "string", "format": "date" },
+    "systems": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/system" }
+    }
+  },
+  "$defs": {
+    "evidence": { "enum": ["verified", "reported", "unverified"] },
+    "state": { "enum": ["yes", "partial", "no", "unknown"] },
+    "system": {
+      "type": "object",
+      "required": ["id", "name", "developer", "year", "topology", "domains", "platforms", "summary", "facets", "claims", "niceties"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Stable slug. Never change it after publication — it is the anchor other documents link to."
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "developer": { "type": "string", "minLength": 1 },
+        "year": {
+          "type": "string",
+          "description": "Free text, because these are messy: '1996', '2019', '1999 · 1.6 beta 2026', '2003–'."
+        },
+        "topology": { "enum": ["graph", "rack", "matrix", "code", "format"] },
+        "domains": {
+          "type": "array",
+          "items": { "enum": ["audio", "image", "midi"] },
+          "uniqueItems": true
+        },
+        "platforms": {
+          "type": "array",
+          "items": { "enum": ["mac", "win", "linux", "ipad", "pi", "web", "embed", "engine"] },
+          "uniqueItems": true
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "One or two sentences on what this specimen shows that others don't. If it could be said of three other entries, it isn't specific enough yet."
+        },
+        "facets": {
+          "type": "object",
+          "required": ["midi", "export", "encap", "open"],
+          "additionalProperties": false,
+          "properties": {
+            "midi": { "$ref": "#/$defs/state" },
+            "export": { "$ref": "#/$defs/state" },
+            "encap": { "$ref": "#/$defs/state" },
+            "open": { "$ref": "#/$defs/state" }
+          },
+          "description": "A navigation summary of the claims below. Facets carry no evidence of their own; they inherit it from the claims that support them."
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "text", "evidence"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string", "minLength": 1, "maxLength": 24 },
+              "text": { "type": "string", "minLength": 1 },
+              "evidence": { "$ref": "#/$defs/evidence" },
+              "source": { "type": "string", "format": "uri", "pattern": "^https?://" }
+            }
+          }
+        },
+        "niceties": {
+          "type": "array",
+          "description": "Small integrated conveniences. These are cross-indexed by theme in the rendered cabinet, so the theme must be one of the documented vocabulary terms.",
+          "items": {
+            "type": "object",
+            "required": ["theme", "text", "evidence"],
+            "additionalProperties": false,
+            "properties": {
+              "theme": { "enum": ["inspection", "hotswap", "mapping", "reuse", "variation", "timing", "access", "tuning"] },
+              "text": { "type": "string", "minLength": 1 },
+              "evidence": { "$ref": "#/$defs/evidence" },
+              "source": { "type": "string", "format": "uri", "pattern": "^https?://" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patch Panel — a cabinet of software modular systems</title>
+<meta name="description" content="A curated, evidence-tagged reference of software modular systems for sound and image: topology, platforms, interoperability, licences, and the small conveniences each one built.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E3E5DF;--panel:#F2F3EF;--ink:#15171A;--ink-soft:#5C6167;--rule:#B6BBB1;
+  --audio:#B0362A;--cv:#B5821A;--midi:#31409B;--data:#14756D;--unknown:#9AA09A;
+  --display:"Bricolage Grotesque","Helvetica Neue",sans-serif;
+  --body:"Source Serif 4",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--canvas);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 96px}
+header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:24px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,7vw,62px);line-height:.96;letter-spacing:-.025em;margin:.18em 0 .3em}
+.standfirst{max-width:62ch;margin:0;color:var(--ink-soft)}
+
+.topos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin:26px 0 0}
+.topo{border-top:2px solid var(--ink);padding-top:10px}
+.topo h3{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 6px;color:var(--ink-soft);font-weight:500}
+.topo p{margin:0;font-size:14px}
+.topo .glyph{font-family:var(--mono);font-size:13px;color:var(--audio);letter-spacing:.02em;display:block;margin-bottom:6px}
+
+.keys{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px}
+.key h4{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 7px;color:var(--ink-soft);font-weight:500}
+.key ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.key li{font-family:var(--mono);font-size:11.5px;display:flex;align-items:center;gap:6px}
+
+.grouplabel{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 6px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#q{font-family:var(--mono);font-size:13px;padding:9px 12px;border:1.5px solid var(--ink);background:var(--panel);color:var(--ink);min-width:190px;flex:1 1 190px;border-radius:0}
+#q:focus{outline:2px solid var(--midi);outline-offset:1px}
+.chip{font-family:var(--mono);font-size:11.5px;padding:7px 11px;border:1.5px solid var(--rule);background:transparent;color:var(--ink-soft);cursor:pointer;border-radius:0}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--midi);outline-offset:2px}
+.count{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin:16px 0 18px}
+
+.rack{display:flex;flex-direction:column;gap:9px}
+.mod{background:var(--panel);border:1.5px solid var(--rule);display:flex}
+.mod:has(> .body[open]){border-color:var(--ink)}
+.rail{width:9px;flex:0 0 9px;background:var(--unknown)}
+.rail[data-t="graph"]{background:var(--audio)}
+.rail[data-t="rack"]{background:var(--cv)}
+.rail[data-t="matrix"]{background:var(--midi)}
+.rail[data-t="code"]{background:var(--data)}
+.rail[data-t="format"]{background:repeating-linear-gradient(180deg,var(--ink) 0 4px,transparent 4px 8px)}
+.body{flex:1;min-width:0}
+summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;flex-wrap:wrap;gap:7px 12px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible{outline:2px solid var(--midi);outline-offset:-3px}
+.name{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.015em}
+.meta{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+.topotag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;padding:2px 6px;border:1.2px solid var(--ink);color:var(--ink)}
+.dom{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;padding:2px 5px;border:1.2px solid var(--rule);color:var(--ink-soft)}
+.dom.snd{border-color:var(--audio);color:var(--audio)}
+.dom.vis{border-color:var(--data);color:var(--data)}
+.dom.mid{border-color:var(--midi);color:var(--midi)}
+.plats{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.plat{font-family:var(--mono);font-size:9.5px;padding:2px 5px;border:1.2px solid var(--rule);color:var(--ink-soft)}
+.plat.hi{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+
+/* Facet jacks. Four redundant carriers per state, so colour is never the only
+   signal: a glyph, a fill/outline/dotted/struck treatment, the state word in the
+   title, and the same word in aria-label for screen readers. */
+.jacks{display:flex;gap:5px;flex-wrap:wrap}
+.jack{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:2.5px 7px;border:1.2px solid;border-radius:999px;white-space:nowrap;cursor:help}
+.jack .st{margin-right:4px;font-size:10px;letter-spacing:0}
+.jack.yes{color:var(--panel);border-color:transparent}
+.jack.partial{background:transparent}
+.jack.no{color:var(--unknown);border-color:var(--rule);text-decoration:line-through;text-decoration-thickness:1px}
+.jack.unknown{color:var(--unknown);border-color:var(--rule);border-style:dotted}
+.j-midi.yes{background:var(--midi)}   .j-midi.partial{color:var(--midi);border-color:var(--midi)}
+.j-export.yes{background:var(--audio)} .j-export.partial{color:var(--audio);border-color:var(--audio)}
+.j-encap.yes{background:var(--data)}  .j-encap.partial{color:var(--data);border-color:var(--data)}
+.j-open.yes{background:var(--cv)}     .j-open.partial{color:var(--cv);border-color:var(--cv)}
+
+.pane{padding:2px 16px 18px;border-top:1px solid var(--rule)}
+.blurb{margin:14px 0 16px;max-width:66ch}
+.claims{margin:0;padding:0;display:grid;gap:11px}
+.claim{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start}
+.claim dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.claim dd{margin:0;max-width:62ch}
+.ev{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:1.5px 5px;margin-left:6px;white-space:nowrap;vertical-align:.12em;border:1.2px solid;text-decoration:none;display:inline-block}
+.ev-v{color:var(--data);border-color:var(--data)}
+.ev-r{color:var(--cv);border-color:var(--cv)}
+.ev-u{color:var(--unknown);border-color:var(--rule);border-style:dotted}
+a.ev:hover{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.nice{margin-top:16px;padding:12px 14px;background:var(--canvas);border-left:3px solid var(--cv)}
+.nice h5{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 8px;color:var(--ink-soft);font-weight:500}
+.nice div{font-size:14.5px;max-width:64ch}
+.nice div + div{margin-top:7px}
+.nice em{font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cv);margin-right:7px}
+
+/* cabinet */
+.cabinet{margin-top:56px;border-top:2px solid var(--ink);padding-top:22px}
+.cabinet > h2{font-family:var(--display);font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+.cabinet > p{max-width:64ch;color:var(--ink-soft);margin:0 0 26px}
+.theme{margin-bottom:24px}
+.theme h3{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink);margin:0 0 9px;padding-bottom:5px;border-bottom:1px solid var(--rule)}
+.theme div{font-size:14.5px;max-width:70ch}
+.theme div + div{margin-top:6px}
+.theme b{font-family:var(--display);font-weight:700}
+
+footer{margin-top:52px;border-top:2px solid var(--ink);padding-top:20px}
+footer h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin:22px 0 10px}
+footer h3:first-child{margin-top:0}
+footer p,footer li{max-width:68ch;font-size:14.5px}
+footer ul{padding-left:18px}
+.corr{border-left:3px solid var(--audio);padding-left:14px}
+@media (max-width:640px){.claim{grid-template-columns:1fr;gap:2px}.plats{margin-left:0;width:100%}.name{font-size:17px}}
+@media (prefers-reduced-motion:no-preference){.pane{animation:d .18s ease-out}@keyframes d{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+
+
+/* added for the data-driven build */
+.loaderr{background:var(--panel);border-left:3px solid var(--audio);padding:16px 18px;max-width:60ch}
+.loaderr code{font-family:var(--mono);font-size:13px;background:var(--canvas);padding:1px 4px}
+#stats{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);max-width:78ch;line-height:1.7}
+#stats b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">A cabinet of software modular systems</div>
+  <h1>Patch<br>Panel</h1>
+  <p class="standfirst">Representative specimens, not exhaustive coverage — chosen so the
+  differences show. Two organising questions: what shape is the modularity, and what small
+  integrated conveniences did each system decide were worth building? Every claim carries its
+  evidence status, because a list like this is only useful if you can tell what has been checked.</p>
+  <div class="topos" id="topos"></div>
+  <div class="keys" id="keys"></div>
+</header>
+
+<div class="grouplabel">Topology</div>
+<div class="controls">
+  <input id="q" type="search" placeholder="filter by name or text…" aria-label="Filter specimens">
+  <span id="f-topology" class="controls" style="gap:8px"></span>
+</div>
+<div class="grouplabel">Domain</div>
+<div class="controls" id="f-domains"></div>
+<div class="grouplabel">Facet</div>
+<div class="controls" id="f-facets"></div>
+<div class="grouplabel">Platform</div>
+<div class="controls" id="f-platforms"></div>
+
+<div class="count" id="count">loading…</div>
+<div class="rack" id="rack"></div>
+
+<section class="cabinet">
+  <h2>Cabinet of details</h2>
+  <p>The same small conveniences gathered across systems, so the family resemblances show.
+  No vendor groups things this way, because the groups cut across products.</p>
+  <div id="cab"></div>
+</section>
+
+<footer>
+  <h3>State of the evidence</h3>
+  <p id="stats"></p>
+  <h3>Corrections so far</h3>
+  <p>This list has been wrong in public before and will be again. It said Bitwig's Grid had no
+  MIDI — Note Grid shipped in 4.2, March 2022. It filed LV2 and AUv3 alongside compilers, when
+  they are formats. It lost ten specimens in a rewrite. Each fix is in the git history; the
+  evidence tags exist so the next error is easier to find than the last.</p>
+  <h3>Deliberately not exhaustive</h3>
+  <p>The Eurorack-metaphor family alone could fill this: Voltage Modular, Softube Modular,
+  Multiphonics, Cardinal, miRack, Mela, zMors, Audulus, Caustic, and semi-modular plugins like
+  Unfiltered Audio LION. Several are here as representatives. The test for inclusion is whether
+  a specimen shows something the others don't — otherwise "any synth with a modulation matrix"
+  swallows the cabinet.</p>
+  <h3>Contributing</h3>
+  <p>Data lives in <code>data/systems.json</code> against <code>data/schema.json</code>, with the
+  controlled vocabulary in <code>data/vocabulary.json</code>. The most useful contribution is
+  turning an <span class="ev ev-u">unv</span> into a <span class="ev ev-v">chk</span> with a
+  source URL. See CONTRIBUTING.md.</p>
+</footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

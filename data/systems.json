@@ -1,0 +1,2113 @@
+{
+  "version": "0.5.0",
+  "updated": "2026-08-20",
+  "systems": [
+    {
+      "id": "synthedit",
+      "name": "SynthEdit",
+      "developer": "Jeff McClintock",
+      "year": "1999 · 1.6 beta 2026",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "win",
+        "mac",
+        "linux"
+      ],
+      "summary": "The environment whose point is the export: patch on a canvas, draw a panel, get a plugin. After three decades of Windows, it crossed to macOS this month.",
+      "facets": {
+        "midi": "partial",
+        "export": "yes",
+        "encap": "partial",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Mac at last",
+          "text": "1.6 beta is the first native macOS version, Apple Silicon only and macOS Tahoe or later, running in parallel with the stable 1.5 track.",
+          "evidence": "verified",
+          "source": "https://www.synthedit.com/beta.htm"
+        },
+        {
+          "label": "Linux too",
+          "text": "Experimental Linux support is part of the same release — a Windows-only tool becoming cross-platform after three decades.",
+          "evidence": "reported",
+          "source": "https://synthanatomy.com/2026/08/synthedit-1-6-brings-native-macos-support-and-linux-experimental-after-three-decades-of-waiting.html"
+        },
+        {
+          "label": "Export",
+          "text": "VST3 on Windows and macOS, Audio Unit on macOS, extendable with third-party C++ modules.",
+          "evidence": "verified",
+          "source": "https://www.synthtopia.com/content/2026/08/06/synthedit-comes-to-mac-after-30-years/"
+        },
+        {
+          "label": "MIDI",
+          "text": "Its own feature list names MIDI utilities as a buildable class alongside synths, effects and experimental processors — but that's a plugin category, not evidence of a MIDI-effect workflow.",
+          "evidence": "verified",
+          "source": "https://www.synthtopia.com/content/2026/08/06/synthedit-comes-to-mac-after-30-years/"
+        },
+        {
+          "label": "Consequence",
+          "text": "Coverage expects a wave of Windows-only SynthEdit plugins to be relaunched cross-platform — decades of patches unlocked by a port.",
+          "evidence": "reported",
+          "source": "https://www.matrixsynth.com/2026/08/synthedit-is-finally-on-mac-after-20.html"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary; 1.6 free to existing users in beta, 60-day demo.",
+          "evidence": "reported",
+          "source": "https://synthanatomy.com/2026/08/synthedit-1-6-brings-native-macos-support-and-linux-experimental-after-three-decades-of-waiting.html"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "Live hoverscopes: hover any pin or wire to see that signal on a miniature live scope, now including GUI and IO modules.",
+          "evidence": "verified",
+          "source": "https://www.kvraudio.com/news/jeff-mcclintock-releases-synthedit-1-6-beta---adds-native-macos-support-67955"
+        }
+      ]
+    },
+    {
+      "id": "touchdesigner",
+      "name": "TouchDesigner",
+      "developer": "Derivative",
+      "year": "2008",
+      "topology": "graph",
+      "domains": [
+        "image",
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "Yes, it does audio — properly, not as an afterthought. CHOPs generate, read, filter, mix and record sound, which makes it one of the few genuinely two-domain graphs here.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Audio",
+          "text": "Audio is managed with CHOPs: generated, played from files, filtered, mixed and recorded, with sources from files, movies, microphones or line in.",
+          "evidence": "verified",
+          "source": "https://derivative.ca/UserGuide/Creating_Audio_with_CHOPs"
+        },
+        {
+          "label": "Synthesis",
+          "text": "The Audio Oscillator CHOP is roughly modelled on the ARP 2600's VCO, with pitch control in octaves — and it's interchangeable with the LFO CHOP by changing frequency and sample rate. Control rate and audio rate are the same mechanism.",
+          "evidence": "verified",
+          "source": "https://derivative.ca/wiki088/index.php?title=Audio_Oscillator_CHOP"
+        },
+        {
+          "label": "MIDI in",
+          "text": "MIDI In CHOP records events per channel; multiple CHOPs can read the same source; MIDI Start/Stop/Continue can drive the timeline.",
+          "evidence": "verified",
+          "source": "https://docs.derivative.ca/MIDI_In_CHOP"
+        },
+        {
+          "label": "MIDI out",
+          "text": "MIDI Out CHOP sends events when input channels change, in a separate thread, with a Python class for arbitrary event types.",
+          "evidence": "verified",
+          "source": "https://docs.derivative.ca/MIDI_Out_CHOP"
+        },
+        {
+          "label": "The catch",
+          "text": "Practitioners describe the MIDI In CHOP and DAT as one of TouchDesigner's weirdest bottlenecks, and note that visual rendering is prioritised — a common workaround is running audio in a separate TouchDesigner process.",
+          "evidence": "reported",
+          "source": "https://derivative.ca/community-post/whats-midi-chop/66811"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, free non-commercial tier.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "timing",
+          "text": "MIDI In CHOP has an Automatic High Frequency mode: events arriving faster than the 60fps timeline are captured as channels running at 1000 samples per second.",
+          "evidence": "verified",
+          "source": "https://docs.derivative.ca/MIDI_In_CHOP"
+        }
+      ]
+    },
+    {
+      "id": "video-painter",
+      "name": "Video Painter",
+      "developer": "Strange Process",
+      "year": "2026",
+      "topology": "graph",
+      "domains": [
+        "image",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "Visuals triggered by MIDI or audio, built on an explicitly modular idea: swappable visual libraries, the way a synth swaps sound sources. Sound goes in; none comes out.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "What it does",
+          "text": "Triggers transparent HAP video, 3D OBJ, ISF shaders and PNGs from MIDI controllers or a microphone; the vendor describes it as a modular concept of different visual libraries, akin to a synth using different sounds.",
+          "evidence": "verified",
+          "source": "https://videopainter.ca/"
+        },
+        {
+          "label": "One-way",
+          "text": "It does not generate audio — it visualises MIDI or audio you send it. Useful as a boundary case for what counts as a two-domain system.",
+          "evidence": "verified",
+          "source": "https://videopainter.ca/"
+        },
+        {
+          "label": "Audio path",
+          "text": "Any device sending MIDI note-on works as a trigger; alternatively a microphone or a virtual audio router like Loopback feeds the audio input, with a dB sensitivity slider.",
+          "evidence": "verified",
+          "source": "https://videopainter.ca/tutorials/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, LITE and PRO tiers, Mac and Windows.",
+          "evidence": "verified",
+          "source": "https://videopainter.ca/"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "mapping",
+          "text": "Hitching Mode: toggle it, adjust a control in the UI, then move a hardware knob — the hardware auto-maps to the last-clicked setting. MIDI learn without a menu.",
+          "evidence": "verified",
+          "source": "https://videopainter.ca/tutorials/"
+        }
+      ]
+    },
+    {
+      "id": "metasounds",
+      "name": "MetaSounds",
+      "developer": "Epic Games",
+      "year": "2022",
+      "topology": "graph",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "engine"
+      ],
+      "summary": "A patcher rebuilt inside Unreal. Everything the tradition learned, arrived at independently, in a system that exchanges nothing with its cousins.",
+      "facets": {
+        "midi": "no",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "A node-graph DSP system giving designers control over graph generation per sound source, authored without programming.",
+          "evidence": "verified",
+          "source": "https://dev.epicgames.com/documentation/unreal-engine/metasounds-the-next-generation-sound-sources-in-unreal-engine?lang=en-US"
+        },
+        {
+          "label": "Encapsulation",
+          "text": "A MetaSound Patch exists specifically to be referenced by other MetaSounds so functionality can be reused; Presets inherit a read-only graph and override inputs.",
+          "evidence": "verified",
+          "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/metasounds-reference-guide-in-unreal-engine"
+        },
+        {
+          "label": "No MIDI",
+          "text": "Parameters come from gameplay — floats, ints, bools, triggers set from Blueprint or C++ — not from a MIDI stream.",
+          "evidence": "verified",
+          "source": "https://github.com/kevinpbuckley/unreal-engine-skills/blob/master/skills/core/audio-and-metasounds/SKILL.md"
+        },
+        {
+          "label": "Displacement",
+          "text": "Practitioners now argue it can replace Wwise or FMOD for most game audio — which would close the door hvcc uses.",
+          "evidence": "reported",
+          "source": "https://www.alexanderrossmusic.com/blog/the-case-for-metasounds-1"
+        },
+        {
+          "label": "Licence",
+          "text": "Ships under the Unreal EULA; not a standalone product.",
+          "evidence": "reported",
+          "source": "https://soundingfuture.com/tools/unreal-engine-metasounds"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "In-graph widgets — knobs and sliders to control and visualise parameters, buttons for live events, and a real-time meter on the output, all inside the editor.",
+          "evidence": "verified",
+          "source": "https://dev.epicgames.com/documentation/unreal-engine/metasounds-the-next-generation-sound-sources-in-unreal-engine?lang=en-US"
+        },
+        {
+          "theme": "timing",
+          "text": "Sample-accurate triggers: event resolution on the order of a single sample, roughly 0.02ms at 48kHz.",
+          "evidence": "verified",
+          "source": "https://dev.epicgames.com/documentation/unreal-engine/metasounds-the-next-generation-sound-sources-in-unreal-engine?lang=en-US"
+        }
+      ]
+    },
+    {
+      "id": "pure-data",
+      "name": "Pure Data",
+      "developer": "Miller Puckette",
+      "year": "1996",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi",
+        "image"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "ipad",
+        "pi",
+        "embed",
+        "web",
+        "engine"
+      ],
+      "summary": "Less an application than a portable notation other systems agree to read. The most widely embedded thing in the cabinet.",
+      "facets": {
+        "midi": "yes",
+        "export": "partial",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Origins",
+          "text": "Puckette's 1996 system, continuing the IRCAM tradition despite engineering differences from the Max line.",
+          "evidence": "verified",
+          "source": "https://en.wikipedia.org/wiki/Max_(software)"
+        },
+        {
+          "label": "Reach",
+          "text": "Via libpd and hvcc, patches run on iOS, Bela, Daisy, OWL, in Unity and Wwise, as LV2 on a Pi, and as VST/AU through Camomile and plugdata.",
+          "evidence": "verified",
+          "source": "https://github.com/enzienaudio/hvcc"
+        },
+        {
+          "label": "Institutional",
+          "text": "Integra Live, a GPL interactive sound design environment from Birmingham Conservatoire, was built on Pd.",
+          "evidence": "verified",
+          "source": "https://en.wikipedia.org/wiki/Integra_Live"
+        },
+        {
+          "label": "Licence",
+          "text": "BSD-style. Confirm at source.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "Abstractions are plain files on disk. No export step, no library format — a patch in a folder is a module, which is why Pd libraries accrete the way they do.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "mnodes",
+      "name": "MNodes",
+      "developer": "Mario Nieto",
+      "year": "2026",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "One plugin that becomes whatever the patch says. 330+ nodes, VST3 hosting in the graph, and a Hub where patches are sold.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "MIDI",
+          "text": "33 MIDI tool nodes ship in the box; the Hub carries a MIDI Effects category.",
+          "evidence": "reported",
+          "source": "https://marionietoworld.com/mnodes/"
+        },
+        {
+          "label": "Hosts plugins",
+          "text": "Full VST3 host, with hosted parameters as modulation targets.",
+          "evidence": "verified",
+          "source": "https://www.kvraudio.com/product/mnodes-by-mario-nieto-world"
+        },
+        {
+          "label": "No export",
+          "text": "Patches run only inside MNodes, but are yours to keep, share or sell.",
+          "evidence": "reported",
+          "source": "https://marionietoworld.com/mnodes/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, €79 / $90.",
+          "evidence": "reported",
+          "source": "https://audioplugin.deals/product/mnodes-by-mario-nieto-world/"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "tuning",
+          "text": "Microtonal quantizer nodes with EDO, just intonation and Scala file loading with keyboard mapping — tuning as a patchable module rather than a global setting.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/forum/viewtopic.php?p=9285200"
+        }
+      ]
+    },
+    {
+      "id": "msh",
+      "name": "Msh",
+      "developer": "Nlock",
+      "year": "2026",
+      "topology": "graph",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "A modular for other people's plugins: cable any plugin to any plugin, modulate their parameters at sample rate.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "partial",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "MIDI",
+          "text": "Not yet — a MIDI transformation rack is on the vendor's roadmap, not in the product.",
+          "evidence": "verified",
+          "source": "https://msh.audio/download"
+        },
+        {
+          "label": "Hosts plugins",
+          "text": "Both AU and VST3, unusual in this cohort.",
+          "evidence": "verified",
+          "source": "https://www.kvraudio.com/product/msh-by-nlock"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, ~$149 rising to ~$200.",
+          "evidence": "reported",
+          "source": "https://www.patreon.com/polarity_music/posts/trying-out-msh-158350467"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "timing",
+          "text": "Sample-accurate modulation of hosted VST3 parameters, not block-rate, with named exceptions like oscillator waveform type and reverb algorithm.",
+          "evidence": "verified",
+          "source": "https://msh.audio/download"
+        }
+      ]
+    },
+    {
+      "id": "karst",
+      "name": "Karst",
+      "developer": "Tim Exile",
+      "year": "2026",
+      "topology": "graph",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "web",
+        "mac",
+        "win"
+      ],
+      "summary": "A graph without cables. Modules autoconnect as you place them, and the performance gestures — dice, locks — are part of the instrument rather than the editor.",
+      "facets": {
+        "midi": "unknown",
+        "export": "no",
+        "encap": "unknown",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Status",
+          "text": "Private beta in the browser; standalone and plugin promised Q4 2026. £69 beta / £99 launch.",
+          "evidence": "verified",
+          "source": "https://www.synthtopia.com/content/2026/07/30/tim-exile-previews-karst-software-modular-system/"
+        },
+        {
+          "label": "MIDI",
+          "text": "Unknown. The Event Core is described for generative algorithms without event-scheduling or polyphony wrangling — generation, not processing.",
+          "evidence": "verified",
+          "source": "https://www.synthtopia.com/content/2026/07/30/tim-exile-previews-karst-software-modular-system/"
+        },
+        {
+          "label": "Lineage break",
+          "text": "The Reaktor-hosted NMS, launched April 2026, is discontinued; Karst is the standalone successor, free to backers.",
+          "evidence": "reported",
+          "source": "https://synthanatomy.com/2026/07/karst-is-tim-exile-s-own-reaktor-style-modular-audio-environment.html"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "variation",
+          "text": "Dice for scaled randomisation paired with locks that protect what you've already dialled in — chance with a ratchet.",
+          "evidence": "verified",
+          "source": "https://www.synthtopia.com/content/2026/07/30/tim-exile-previews-karst-software-modular-system/"
+        }
+      ]
+    },
+    {
+      "id": "vcv-rack",
+      "name": "VCV Rack",
+      "developer": "Andrew Belt",
+      "year": "2017",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "Eurorack in software, with the largest module ecosystem here and the metaphor's limits inherited along with its benefits. Stands in for the whole virtual-rack family.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "No encapsulation",
+          "text": "Sub-module support requested on the official forum since at least 2020, explicitly by comparison to Pd and Max, and again in 2023.",
+          "evidence": "verified",
+          "source": "https://community.vcvrack.com/t/sub-patches-or-sub-modules/7663"
+        },
+        {
+          "label": "Contribution",
+          "text": "VCV states it cannot accept outside code contributions to Rack itself; the ecosystem is entirely third-party plugins.",
+          "evidence": "verified",
+          "source": "https://github.com/VCVRack/Rack"
+        },
+        {
+          "label": "Licence",
+          "text": "GPLv3 core; proprietary terms on some graphics and many third-party modules.",
+          "evidence": "verified",
+          "source": "https://en.wikipedia.org/wiki/VCV_Rack"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "Patch selections (.vcvs): save a group of modules with their cables and paste it into another patch. Reuse by copy — no interface, no single point of edit.",
+          "evidence": "verified",
+          "source": "https://community.vcvrack.com/t/share-your-patch-selections-vcvs/21818"
+        },
+        {
+          "theme": "variation",
+          "text": "Users keep asking for patch morphing as found in Voltage Modular and the Nord Modular G2 editor — a nicety that exists elsewhere and is felt as absent here.",
+          "evidence": "reported",
+          "source": "https://community.vcvrack.com/t/feature-requests/17285"
+        }
+      ]
+    },
+    {
+      "id": "modep",
+      "name": "MODEP",
+      "developer": "Blokas, on MOD's software",
+      "year": "2018",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "linux",
+        "pi"
+      ],
+      "summary": "A drag-and-drop pedalboard for Raspberry Pi where the pedals really are separate plugins. Modularity as architecture, not as skin.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "Hundreds of LV2 plugins — reverb through complex FM synth — on a Pi with any compatible sound card, assembled by dragging as you would in real life.",
+          "evidence": "verified",
+          "source": "https://blokas.io/modep/"
+        },
+        {
+          "label": "Built from",
+          "text": "MOD-UI and MOD-HOST, the MOD team's open-source projects, packaged as a Patchbox OS module.",
+          "evidence": "verified",
+          "source": "https://blokas.io/patchbox-os/docs/modules/"
+        },
+        {
+          "label": "Distribution",
+          "text": "Uses Patchstorage as its plugin cloud since 1.12, installable from inside the interface.",
+          "evidence": "verified",
+          "source": "https://blokas.io/modep/"
+        },
+        {
+          "label": "Limit",
+          "text": "Users report MIDI being effectively USB-only in practice.",
+          "evidence": "reported",
+          "source": "https://www.elektronauts.com/t/raspberry-pi-patchbox-os-modep/213393"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "access",
+          "text": "The interface is a web server on the Pi. You patch from a laptop, tablet or phone browser — the instrument has no screen and doesn't need one.",
+          "evidence": "verified",
+          "source": "https://www.talkbass.com/threads/modep.1532675/"
+        }
+      ]
+    },
+    {
+      "id": "the-grid",
+      "name": "The Grid (Bitwig)",
+      "developer": "Bitwig",
+      "year": "2019",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "Three modular devices inside one DAW, on the only major commercial DAW that ships for Linux.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "partial",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "MIDI",
+          "text": "Note Grid is a full Grid device for note FX and generators, alongside Poly Grid and FX Grid.",
+          "evidence": "verified",
+          "source": "https://www.bitwig.com/the-grid/"
+        },
+        {
+          "label": "When",
+          "text": "4.2, March 2022, with a Note Out module for all three Grids — MPE-compatible, pitch, velocity and channel modulatable.",
+          "evidence": "verified",
+          "source": "https://downloads.bitwig.com/4.2/Release-Notes-4.2.html"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "verified",
+          "source": "https://en.wikipedia.org/wiki/Bitwig_Studio"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "mapping",
+          "text": "The Channel-16 modulator: sixteen separate modulator signals that fire on their corresponding MIDI channel, turning channel information into routing.",
+          "evidence": "verified",
+          "source": "https://downloads.bitwig.com/4.2/Release-Notes-4.2.html"
+        }
+      ]
+    },
+    {
+      "id": "kilohearts",
+      "name": "Kilohearts (Snap Heap, Multipass, Phase Plant)",
+      "developer": "Kilohearts",
+      "year": "2016",
+      "topology": "rack",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "The clearest rack in the cabinet: lanes of snapins, a generator/effect/modulator stack, and one module format that works across all three hosts.",
+      "facets": {
+        "midi": "no",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Topology",
+          "text": "Signal falls through ordered lanes rather than along drawn cables; modulation is assigned, not patched.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, with a free tier of snapins.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "One snapin format, three hosts. A module bought for Snap Heap works in Multipass and inside Phase Plant — the module is portable across products, which almost nothing else here manages.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "shaperbox",
+      "name": "ShaperBox",
+      "developer": "Cable Guys",
+      "year": "2016",
+      "topology": "rack",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "A rack whose modules all share one idea — a drawn LFO shape applied to a different parameter per module. Constrained enough to be learnable in an afternoon.",
+      "facets": {
+        "midi": "no",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Topology",
+          "text": "Stacked shaper modules in fixed order, each driven by the same editable curve interface.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "mapping",
+          "text": "The same drawn curve is the control surface for every module in the rack — learn one gesture, use it everywhere.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "reason-rack",
+      "name": "Reason Rack",
+      "developer": "Reason Studios",
+      "year": "2000",
+      "topology": "rack",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "The rack that taught a generation what patching looks like, by hiding it and then revealing it.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Extension",
+          "text": "Rack Extensions (2012) opened the format to third-party module makers; the Rack also runs as a plugin in other DAWs.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "Flip the rack around to see the cables. Patching is literally on the back — hidden by default, physical when you want it.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "drambo",
+      "name": "Drambo",
+      "developer": "Beepstreet",
+      "year": "2020",
+      "topology": "rack",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "ipad",
+        "mac"
+      ],
+      "summary": "A modular groovebox for iPad that hosts AUv3 plugins as modules — the plugin-as-module move the 2026 desktop cohort is selling, six years earlier, on a touchscreen.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Hosts plugins",
+          "text": "AUv3 instruments and effects sit inside the chain.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "Racks inside racks, on a device with no filesystem to speak of.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "orac",
+      "name": "Orac",
+      "developer": "Mark Harris (TheTechnobear)",
+      "year": "2018",
+      "topology": "rack",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "linux",
+        "pi",
+        "embed"
+      ],
+      "summary": "A modular built in Pd and shipped as a Patchbox OS module: slots you fill, where the modules themselves are Pd patches.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "A virtual modular based on Pure Data, deliberately flexible so users create their own modules and extend the ecosystem.",
+          "evidence": "verified",
+          "source": "https://blokas.io/patchbox-os/"
+        },
+        {
+          "label": "Licence",
+          "text": "Open source. Confirm at source.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "The environment and its extension language are the same thing: to write a module you write a Pd patch.",
+          "evidence": "verified",
+          "source": "https://blokas.io/patchbox-os/"
+        }
+      ]
+    },
+    {
+      "id": "vs-visual-synthesizer",
+      "name": "VS — Visual Synthesizer",
+      "developer": "Imaginando",
+      "year": "2020",
+      "topology": "matrix",
+      "domains": [
+        "image",
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "ipad"
+      ],
+      "summary": "A visual instrument built like a synth: shader voices with polyphony, driven by audio and MIDI, wired through a modulation matrix rather than cables. Borderline modular, and instructive precisely for that.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Routing",
+          "text": "Four LFOs, MIDI-fired envelopes and audio modulators meet in a single modulation matrix — the routing is real, the cables are not.",
+          "evidence": "verified",
+          "source": "https://www.imaginando.pt/products/vs-visual-synthesizer"
+        },
+        {
+          "label": "Two-domain",
+          "text": "Shaders as the sound engine's equivalent: write from scratch or port from ISF, GLSL Sandbox or Shadertoy, stack polyphonic visual voices, drive them from audio peaks, envelopes and frequency bands.",
+          "evidence": "verified",
+          "source": "https://www.imaginando.pt/products/vs-visual-synthesizer"
+        },
+        {
+          "label": "Portability",
+          "text": "Standalone, plugin in Ableton/Logic/FL, or iPad — the same instrument across desktop and tablet.",
+          "evidence": "verified",
+          "source": "https://www.imaginando.pt/products/vs-visual-synthesizer"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "Shaders come in from the wider shader ecosystem — ISF, Shadertoy — so its module library is the internet's, not the vendor's.",
+          "evidence": "unverified"
+        },
+        {
+          "theme": "tuning",
+          "text": "Polyphonic visual voices: the same note-per-voice model as a synth, applied to images.",
+          "evidence": "verified",
+          "source": "https://www.imaginando.pt/products/vs-visual-synthesizer"
+        }
+      ]
+    },
+    {
+      "id": "hvcc-heavy",
+      "name": "hvcc / Heavy",
+      "developer": "Enzien → Wasted Audio",
+      "year": "2015",
+      "topology": "code",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "pi",
+        "embed",
+        "engine",
+        "web"
+      ],
+      "summary": "A compiler that turns a Pd patch into something else entirely. The most consequential interoperability in the cabinet, and invisible from inside any one system.",
+      "facets": {
+        "midi": "partial",
+        "export": "yes",
+        "encap": "partial",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Targets",
+          "text": "Original generators were c, bela, fabric, js, pdext, unity, vst2, wwise; current maintenance adds Daisy, DPF and LV2 via the MOD cloud builder.",
+          "evidence": "verified",
+          "source": "https://github.com/enzienaudio/hvcc"
+        },
+        {
+          "label": "Origin",
+          "text": "Built because libpd was the only embeddable design tool abstract enough for musicians, but too slow for iPhone products — keep Pd as the design surface, compile it away.",
+          "evidence": "verified",
+          "source": "https://github.com/giuliomoro/hvcc"
+        },
+        {
+          "label": "Game audio",
+          "text": "The Wwise target picks FX or source plugin depending on whether the patch contains adc~; exposed parameters become RTPCs.",
+          "evidence": "verified",
+          "source": "https://github.com/enzienaudio/hvcc/blob/master/docs/06.wwise.md"
+        },
+        {
+          "label": "Licence",
+          "text": "Open source since Enzien folded; maintained by Wasted Audio since 2021.",
+          "evidence": "verified",
+          "source": "https://github.com/giuliomoro/hvcc"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "Patch analysis: it flags common mistakes and inconsistencies between Pd and Heavy behaviour, and still generates the target — a compiler that tells you where the two dialects disagree.",
+          "evidence": "verified",
+          "source": "https://wasted-audio.github.io/hvcc/docs/02.getting_started.html"
+        }
+      ]
+    },
+    {
+      "id": "faust",
+      "name": "Faust",
+      "developer": "GRAME",
+      "year": "2002",
+      "topology": "code",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "pi",
+        "web",
+        "embed",
+        "engine"
+      ],
+      "summary": "A functional DSP language where the module boundary is a function and the artifact is whatever target you asked for.",
+      "facets": {
+        "midi": "partial",
+        "export": "yes",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Targets",
+          "text": "VST, AU, LV2, Max and Pd externals, JUCE projects, wasm, embedded boards via the faust2… scripts.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "GPL compiler; generated code remains the author's. The cell that matters most for anyone shipping — confirm at source.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "The compiler emits block diagrams of the signal graph from the code — the text produces a picture of itself.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "plugdata",
+      "name": "plugdata",
+      "developer": "Timothy Schoen",
+      "year": "2021",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi",
+        "image"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "pi",
+        "ipad"
+      ],
+      "summary": "Pd with a modern interface that solves the export problem twice: it is itself a plugin, and it ships a compiler toolchain that turns patches into other people's formats.",
+      "facets": {
+        "midi": "yes",
+        "export": "yes",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Runs as",
+          "text": "VST3, AU, LV2 and CLAP, plus standalone — so a patch is usable in a DAW with no build step at all.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/index.html"
+        },
+        {
+          "label": "Exports to",
+          "text": "Four compile targets via the bundled Heavy/hvcc toolchain: C++ source, Electro-Smith Daisy (compile and flash), DPF audio plugin, and Pd external.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/docs/book/CompilingPatches.html"
+        },
+        {
+          "label": "Export reach",
+          "text": "The DPF target covers effects, instruments and custom plugins with MIDI I/O, emitting LV2, VST2, VST3, CLAP and JACK — nearly every current format from one patch.",
+          "evidence": "verified",
+          "source": "https://github.com/thouldcroft/plugdata_wiki_wip_tdh/blob/update-UI-overview/Compiling-And-Compilation-Mode.md"
+        },
+        {
+          "label": "Compatibility",
+          "text": "Based directly on pd-vanilla with minimal modification: Pd patches open in plugdata and plugdata patches open in Pd. Unusually for this cabinet, a fork that didn't fork the file format.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/"
+        },
+        {
+          "label": "Platforms",
+          "text": "Windows, macOS, a wide range of Linux distros, Raspberry Pi, an iOS app, and FreeBSD if compiled from source.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/index.html"
+        },
+        {
+          "label": "Teaching",
+          "text": "The project explicitly positions itself for high schools and universities as a place to learn programming fundamentals alongside audio.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/"
+        },
+        {
+          "label": "Licence",
+          "text": "Free and open source, volunteer-maintained.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/index.html"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "Compiled Mode: a toggle that checks the patch against the subset hvcc supports, posting unsupported objects to the console and restricting autocompletion to compatible ones. The environment tells you, while you patch, whether what you're building can leave.",
+          "evidence": "verified",
+          "source": "https://plugdata.org/docs/book/CompilingPatches.html"
+        },
+        {
+          "theme": "reuse",
+          "text": "A patch can compile to a Pd external — the same logic, running as one object with a single translation instead of one per object in an abstraction.",
+          "evidence": "verified",
+          "source": "https://github.com/thouldcroft/plugdata_wiki_wip_tdh/blob/update-UI-overview/Compiling-And-Compilation-Mode.md"
+        }
+      ]
+    },
+    {
+      "id": "max-msp-jitter",
+      "name": "Max/MSP/Jitter",
+      "developer": "Cycling '74",
+      "year": "1997",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi",
+        "image"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "The commercial branch of the patcher tradition — audio, image and compiled DSP in one environment, exchanging files with nothing else.",
+      "facets": {
+        "midi": "yes",
+        "export": "partial",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Origins",
+          "text": "Cycling '74's 1997 release derived partly from Puckette's Pure Data work; the two lines share a root and never converge again.",
+          "evidence": "verified",
+          "source": "https://en.wikipedia.org/wiki/Max_(software)"
+        },
+        {
+          "label": "Ergonomics",
+          "text": "Its MIDI experience is explicitly cited by a 2026 developer as motivation for building a new environment.",
+          "evidence": "verified",
+          "source": "https://juce.com/made-with-juce/mario-from-mario-nieto-world/"
+        },
+        {
+          "label": "Export",
+          "text": "RNBO reaches C++, web and embedded targets; Max for Live reaches Live only.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "verified",
+          "source": "https://en.wikipedia.org/wiki/Max_(software)"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "max-for-live",
+      "name": "Max for Live",
+      "developer": "Cycling '74 / Ableton",
+      "year": "2009",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "Max patches as Live devices. The compromise that made patching mainstream, at the cost of binding the result to one host.",
+      "facets": {
+        "midi": "yes",
+        "export": "partial",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "The lock",
+          "text": "Produces a device, not a plugin — named by Mario Nieto as part of why MNodes exists.",
+          "evidence": "verified",
+          "source": "https://juce.com/made-with-juce/mario-from-mario-nieto-world/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "reaktor",
+      "name": "Reaktor",
+      "developer": "Native Instruments",
+      "year": "1999",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "The environment the 2026 cohort is measured against, and which none of them descend from technically — only rhetorically.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Position",
+          "text": "Named repeatedly in 2026 coverage as the reference point: Karst follows its footsteps, MNodes is like it but DAW-agnostic.",
+          "evidence": "reported",
+          "source": "https://synthanatomy.com/2026/07/mario-nieto-mnodes-node-based-modular-environment-and-infinite-sound-tools.html"
+        },
+        {
+          "label": "Stagnation",
+          "text": "No major overhaul in a long time, cited as motivation for Karst.",
+          "evidence": "reported",
+          "source": "https://synthanatomy.com/2026/07/karst-is-tim-exile-s-own-reaktor-style-modular-audio-environment.html"
+        },
+        {
+          "label": "Runtime lock",
+          "text": "Instruments run in Reaktor or the free Player; the full version is required to build.",
+          "evidence": "reported",
+          "source": "https://cdm.link/new-exile-modular-system/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "Macros nested arbitrarily deep, with Core underneath for sample-level work — two granularities of module in one environment.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "libpd",
+      "name": "libpd",
+      "developer": "Peter Brinkmann et al.",
+      "year": "2010",
+      "topology": "code",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "ipad",
+        "pi",
+        "embed",
+        "engine"
+      ],
+      "summary": "Pd as a library you link against. The move that turned a desktop application into infrastructure for phones, games and installations.",
+      "facets": {
+        "midi": "yes",
+        "export": "partial",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Role",
+          "text": "Named as the embeddable design tool that made interactive audio products possible before hvcc existed to compile the patches away.",
+          "evidence": "verified",
+          "source": "https://github.com/giuliomoro/hvcc"
+        },
+        {
+          "label": "Licence",
+          "text": "BSD-family, inherited from Pd. Confirm at source.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "The patch stays a patch at runtime — a sound designer can edit it without rebuilding the host application.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "bela",
+      "name": "Bela",
+      "developer": "Augmented Instruments Lab",
+      "year": "2016",
+      "topology": "code",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "linux",
+        "embed"
+      ],
+      "summary": "An embedded platform with latency low enough to make digital instruments feel physical. Runs Pd, Faust, SuperCollider and C++ on the same board.",
+      "facets": {
+        "midi": "yes",
+        "export": "partial",
+        "encap": "partial",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "As a target",
+          "text": "One of hvcc's original generators, so a Pd patch becomes Bela firmware without hand-porting.",
+          "evidence": "verified",
+          "source": "https://github.com/enzienaudio/hvcc"
+        },
+        {
+          "label": "Licence",
+          "text": "Open hardware and software.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "wwise",
+      "name": "Wwise",
+      "developer": "Audiokinetic",
+      "year": "2006",
+      "topology": "graph",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "engine"
+      ],
+      "summary": "Game audio middleware whose graphs carry the strictest memory and state constraints here — and, unusually, a documented door for patches from outside.",
+      "facets": {
+        "midi": "no",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "The open door",
+          "text": "hvcc generates Wwise plugins from Pd patches; exposed inputs become sliders wired to game RTPCs, and outputs set global RTPCs.",
+          "evidence": "verified",
+          "source": "https://github.com/enzienaudio/hvcc/blob/master/docs/06.wwise.md"
+        },
+        {
+          "label": "Maintained",
+          "text": "Audiokinetic published the refresh of that path against their new plugin API, using plugdata to author the patch.",
+          "evidence": "verified",
+          "source": "https://www.audiokinetic.com/en/blog/update-on-wwise-support-in-heavy/"
+        },
+        {
+          "label": "Friction",
+          "text": "A practitioner account concludes the toolchain takes a programmer's patience — patch, generate, compile, copy, iterate — which is why Enzien offered a cloud build service instead.",
+          "evidence": "reported",
+          "source": "https://jcbellido.info/wwise-plugins-pure-data-01/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, tiered.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "mapping",
+          "text": "A parameter exposed in the patch becomes a game-side RTPC by name — the mapping is the identifier, with no binding step.",
+          "evidence": "verified",
+          "source": "https://github.com/enzienaudio/hvcc/blob/master/docs/06.wwise.md"
+        }
+      ]
+    },
+    {
+      "id": "sunvox",
+      "name": "SunVox",
+      "developer": "Alexander Zolotov",
+      "year": "2008",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "ipad",
+        "pi",
+        "embed"
+      ],
+      "summary": "A modular tracker that runs on almost anything, including hardware nobody else targets. The widest platform span in the cabinet, and the entry that matters most where budgets don't stretch.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Reach",
+          "text": "Windows, macOS, Linux, iOS, Android, Raspberry Pi and older hardware besides.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary; free on some platforms.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "MetaModules wrap a whole patch as one module with its own controllers — encapsulation on a platform where screen space is the scarcest resource.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "bespoke-synth",
+      "name": "Bespoke Synth",
+      "developer": "Ryan Challinor",
+      "year": "2021",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "A free, open-source modular DAW that can be repatched while running. The most legible thing here to watch someone else use.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "partial",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "MIDI",
+          "text": "Sequencing and note routing are first-class, not I/O adapters.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "GPLv3.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "hotswap",
+          "text": "No stop-the-world edit: you rewire while it plays, which makes it unusually good for demonstrating to a room what a change does.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "modular-fiasco",
+      "name": "Modular Fiasco",
+      "developer": "Jonas Eriksson",
+      "year": "2026",
+      "topology": "graph",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "An FX-first entrant in the 2026 wave, notable for compiling the graph with feedback awareness so modules can be inserted into a feedback path.",
+      "facets": {
+        "midi": "no",
+        "export": "no",
+        "encap": "unknown",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Architecture",
+          "text": "Separate patchable domains for audio, modulation and control; per-sample processing; feedback-aware graph compilation.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/forum/viewtopic.php?t=630390&start=30"
+        },
+        {
+          "label": "Status",
+          "text": "In development, alpha testers sought.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/forum/viewtopic.php?t=630390&start=30"
+        },
+        {
+          "label": "Licence",
+          "text": "Presumed proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "cardinal",
+      "name": "Cardinal",
+      "developer": "DISTRHO / falkTX",
+      "year": "2022",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "web",
+        "embed"
+      ],
+      "summary": "VCV Rack as a self-contained free plugin. The specimen that shows what the open licence in VCV's core actually enables — and what it costs.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "no",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "A DPF-based plugin wrapper around VCV Rack, using Rack's code directly rather than forking it, aiming at a fully free, self-contained plugin version.",
+          "evidence": "verified",
+          "source": "https://github.com/DISTRHO/cardinal"
+        },
+        {
+          "label": "Formats",
+          "text": "AudioUnit, CLAP, LV2, VST2 and VST3, plus standalone for FreeBSD, Linux, macOS, Windows and the web — a wider format spread than VCV's own paid plugin.",
+          "evidence": "verified",
+          "source": "https://cardinal.kx.studio/about"
+        },
+        {
+          "label": "The trade",
+          "text": "Nothing loads from outside: every module is built into the binary, and it never connects to the VCV library. Over a thousand modules from dozens of authors, all of them GPLv3-compatible by necessity.",
+          "evidence": "verified",
+          "source": "https://sourceforge.net/projects/distrho-cardinal.mirror/"
+        },
+        {
+          "label": "Licence as constraint",
+          "text": "Modules are evaluated carefully before inclusion because anything added must stay forever for backwards compatibility, must carry a GPLv3+ compatible licence, and must have a clear artwork licence — the maintainer notes how many projects don't consider this at all.",
+          "evidence": "verified",
+          "source": "https://kx.studio/News/?action=view&url=cardinal-2202-is-now-released"
+        },
+        {
+          "label": "The criticism",
+          "text": "Reviewers argued it leaves behind the community that creates most of VCV's value, in exchange for a free and better-performing plugin.",
+          "evidence": "reported",
+          "source": "https://www.gearnews.com/cardinal-open-source-vcv-rack-as-a-free-vst-plugin/"
+        },
+        {
+          "label": "Licence",
+          "text": "GPLv3+.",
+          "evidence": "verified",
+          "source": "https://cardinal.kx.studio/about"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "Real CV ports in and out of the plugin, in the formats that support them — the modular can be patched to other modulars across the host, not just inside itself.",
+          "evidence": "verified",
+          "source": "https://sourceforge.net/projects/distrho-cardinal.mirror/"
+        }
+      ]
+    },
+    {
+      "id": "multiphonics-cv-3",
+      "name": "Multiphonics CV-3",
+      "developer": "Applied Acoustics Systems",
+      "year": "2025",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "A closed modular that declines the Eurorack impression entirely, and brings AAS's physical modelling into the rack. Notable for what it did to the builder/player split.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Not Eurorack",
+          "text": "Reviewers note AAS deliberately doesn't emulate the Eurorack world; the modules and concept come from elsewhere.",
+          "evidence": "reported",
+          "source": "https://synthanatomy.com/2026/02/aas-multiphonics-cv-3-modular-synth-gets-new-synthesis-power-mpe-and-more.html"
+        },
+        {
+          "label": "Closed system",
+          "text": "No third-party modules. The library is what AAS ships, including physical modelling oscillators and resonators derived from Chromaphone.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/product/multiphonics-cv-3-by-applied-acoustics-systems/reviews"
+        },
+        {
+          "label": "Polyphony",
+          "text": "CV-3's headline change: a patch becomes polyphonic with one button, and plays with MPE — unusual for a modular, where voice allocation is normally the patcher's problem.",
+          "evidence": "verified",
+          "source": "https://www.applied-acoustics.com/press/aas-multiphonics-cv-3-press-release/"
+        },
+        {
+          "label": "Tassman question",
+          "text": "Not a continuation of Tassman despite the shared philosophy — a separate synth, per users who chased down the answer.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/product/multiphonics-cv-3-by-applied-acoustics-systems/reviews"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, VST2/VST3/AU/AAX and standalone.",
+          "evidence": "verified",
+          "source": "https://www.applied-acoustics.com/press/aas-multiphonics-cv-3-announcement-namm-2025-press-release/"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "hotswap",
+          "text": "The direct answer to your hot-swapping question. Tassman split building from playing — patches were made in a builder, tweaked in a player, and sound was interrupted when the patch changed. Multiphonics patches with wires directly on the playing interface. Same company, opposite decision, twenty years apart.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/product/multiphonics-cv-3-by-applied-acoustics-systems/reviews"
+        }
+      ]
+    },
+    {
+      "id": "audulus",
+      "name": "Audulus",
+      "developer": "Taylor Holliday",
+      "year": "2011",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "ipad"
+      ],
+      "summary": "Node-level rather than module-level: closer to circuit primitives than to panels, and at home on a tablet since long before that was normal.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Granularity",
+          "text": "The unit is a node — an oscillator, a maths operation — rather than a finished module with a faceplate.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Encapsulation",
+          "text": "Subpatch nodes with custom interfaces: genuine encapsulation, rare in the rack-metaphor family.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "A subpatch gets its own knobs and ports, so a user-built node is indistinguishable from a built-in one.",
+          "evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "voltage-modular",
+      "name": "Voltage Modular",
+      "developer": "Cherry Audio",
+      "year": "2018",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "Eurorack-metaphor modular whose distinguishing feature is that you can build modules without a C++ toolchain.",
+      "facets": {
+        "midi": "partial",
+        "export": "partial",
+        "encap": "partial",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Module Designer",
+          "text": "A first-party environment for authoring new modules, so the ecosystem isn't gated behind a separate build chain.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "variation",
+          "text": "Patch morphing — interpolating between patch variations. VCV users cite it, along with the Nord Modular G2 editor, as the thing they want ported.",
+          "evidence": "reported",
+          "source": "https://community.vcvrack.com/t/feature-requests/17285"
+        }
+      ]
+    },
+    {
+      "id": "softube-modular",
+      "name": "Softube Modular",
+      "developer": "Softube",
+      "year": "2015",
+      "topology": "graph",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "The licensing specimen: officially sanctioned recreations of specific hardware modules, sold module by module. Modularity as a licensing arrangement as much as an architecture.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "The premise",
+          "text": "Licensed emulations of named Eurorack modules from real manufacturers, rather than generic equivalents.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Consequence",
+          "text": "The catalogue is bounded by commercial agreements, not by what the community wants to build — the opposite constraint to Cardinal's licence filter.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, per-module purchases.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "mirack",
+      "name": "miRack",
+      "developer": "Ilya Orlov",
+      "year": "2019",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "ipad"
+      ],
+      "summary": "VCV-compatible modular built for touch and for battery life. The tablet answer to the Eurorack metaphor.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Relation",
+          "text": "A VCV Rack derivative, referenced in coverage alongside Cardinal as one of the forks that preceded it.",
+          "evidence": "reported",
+          "source": "https://www.gearnews.com/cardinal-open-source-vcv-rack-as-a-free-vst-plugin/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "mela",
+      "name": "Mela",
+      "developer": "Nikolozi Meladze",
+      "year": "2020",
+      "topology": "rack",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "ipad",
+        "mac"
+      ],
+      "summary": "An iOS modular that is also an AUv3 host, from a single independent developer. The plugin-as-module idea again, on a platform where it arrived first.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "partial",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Hosting",
+          "text": "Hosts AUv3 plugins inside its own modular chain, so third-party instruments become modules.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "caustic-3",
+      "name": "Caustic 3",
+      "developer": "Single Cell Software",
+      "year": "2013",
+      "topology": "rack",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "ipad"
+      ],
+      "summary": "A rack of fixed machines on Android and iOS, priced for people who don't have a studio. Belongs in the cabinet for reach, not depth.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Model",
+          "text": "A fixed set of machine types filling rack slots, rather than an open module ecosystem — closer to a hardware groovebox than to a patcher.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Why it's here",
+          "text": "Android is otherwise absent from this list entirely, and its price point puts a modular workflow in front of people none of the desktop entries reach.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, low one-off cost.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "plugin-graph-hosts",
+      "name": "Plugin-graph hosts (Bidule, Patchwork, Carla, Element)",
+      "developer": "various",
+      "year": "2003–",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "The patchbays. The module is a whole plugin and the host supplies only the wiring — the same idea the 2026 cohort is selling, minus the module library.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "partial",
+        "open": "partial"
+      },
+      "claims": [
+        {
+          "label": "The family",
+          "text": "Plogue Bidule, Blue Cat Patchwork, DDMF Metaplugin, FL Studio's Patcher, plus the open ones: Carla and Kushview Element.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Difference from the cohort",
+          "text": "These host plugins in a graph but provide almost no primitives of their own. MNodes and Msh do both — a module library and a plugin host — which is what makes them new rather than another patchbay.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Mixed: Carla and Element are GPL, the rest proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "waveform-racks",
+      "name": "Waveform Racks",
+      "developer": "Tracktion",
+      "year": "2013",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "First-party modular inside a DAW that also ships for Linux and Raspberry Pi. Cables and pins, inside a rack that behaves like a plugin.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Topology",
+          "text": "A genuine node graph with drawn connections, wrapped so it can be dropped into a track like any other device.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary, with a free tier.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "the-semi-modular-edge",
+      "name": "The semi-modular edge (LION, Sandman Pro)",
+      "developer": "Unfiltered Audio",
+      "year": "2019–",
+      "topology": "matrix",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "Filed as a boundary marker rather than a specimen. These have patchable modulation and no module library — which is where the line has to be drawn, or every synth with a mod matrix joins the cabinet.",
+      "facets": {
+        "midi": "no",
+        "export": "no",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "The test",
+          "text": "Patchable modulation alone doesn't qualify. What distinguishes a modular is that the set of modules is open — you can add one that the designer didn't ship.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Why they're borderline",
+          "text": "LION's modulation patching is expressive enough to feel modular in use; Sandman Pro applies the same to a delay. Both are fixed instruments with a routing layer.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "lv2",
+      "name": "LV2",
+      "developer": "open community",
+      "year": "2008",
+      "topology": "format",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "linux",
+        "pi",
+        "embed"
+      ],
+      "summary": "Not a system: a contract. Its significance is social — MOD, MODEP, pi-Stomp, Patchbox OS and a cloud build service all agree on it, so a plugin built anywhere lands everywhere in that world.",
+      "facets": {
+        "midi": "yes",
+        "export": "yes",
+        "encap": "no",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Ecosystem",
+          "text": "MODEP exposes hundreds of LV2 plugins, distributed through Patchstorage, with 200+ published and growing weekly.",
+          "evidence": "verified",
+          "source": "https://blokas.io/modep/"
+        },
+        {
+          "label": "Independent supply",
+          "text": "Third parties ship LV2 into that world without asking: GuitarML's amp models, a Neural Amp Modeler build for Pi.",
+          "evidence": "verified",
+          "source": "https://github.com/GuitarML/modep-plugins"
+        },
+        {
+          "label": "Licence",
+          "text": "Open specification.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "auv3",
+      "name": "AUv3",
+      "developer": "Apple",
+      "year": "2015",
+      "topology": "format",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "ipad"
+      ],
+      "summary": "The contract that made a modular ecosystem possible on iPad. Apps become modules; hosts provide the rack.",
+      "facets": {
+        "midi": "yes",
+        "export": "yes",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Effect",
+          "text": "Made plugin-as-module normal on touch devices years before the 2026 desktop cohort made it a selling point.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary Apple format.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
+      "id": "logue-sdk",
+      "name": "logue SDK",
+      "developer": "KORG",
+      "year": "2018",
+      "topology": "format",
+      "domains": [
+        "audio"
+      ],
+      "platforms": [
+        "embed"
+      ],
+      "summary": "Filed here as the useful counter-example: a contract for user modules inside a closed instrument. Not modular — you can't patch — but the same idea of a third-party module boundary, in hardware.",
+      "facets": {
+        "midi": "no",
+        "export": "yes",
+        "encap": "no",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "User oscillators and effects for prologue, minilogue xd, NTS-1 and relatives, written in C/C++ against a fixed slot.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Why it's here",
+          "text": "It marks the edge of the category: a module format without a patching surface. Worth watching for a modular equivalent.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary SDK.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "_comment": "The controlled vocabulary. The renderer takes its display labels from here and the validator checks data/systems.json against it, so adding a term means editing this file first. Definitions are deliberately opinionated — see CONTRIBUTING.md before proposing a new one.",
+
+  "topology": {
+    "graph": {
+      "label": "graph",
+      "glyph": "[a]──▶[b]──▶[c]",
+      "definition": "Modules with ports; connections are drawn by the user. The topology is the patch.",
+      "rail": "audio"
+    },
+    "rack": {
+      "label": "rack",
+      "glyph": "┌a┐ ┌b┐ ┌c┐ ↓",
+      "definition": "Ordered slots that signal falls through. Modulation is a separate mechanism, not another cable.",
+      "rail": "cv"
+    },
+    "matrix": {
+      "label": "matrix",
+      "glyph": "src × dst grid",
+      "definition": "The same routing without cables: sources against destinations in a grid. Compact, unreadable at a glance.",
+      "rail": "midi"
+    },
+    "code": {
+      "label": "code",
+      "glyph": "f(g(x), h(y))",
+      "definition": "Assembly by text. Included only where the work is mostly wiring premade modules rather than writing DSP from scratch.",
+      "rail": "data"
+    },
+    "format": {
+      "label": "format",
+      "glyph": "· · · contract · · ·",
+      "definition": "Not a system. A contract that lets modules exist and travel. Filed separately so it is never compared like for like against an environment.",
+      "rail": "dotted"
+    }
+  },
+
+  "facets": {
+    "midi": { "label": "midi", "definition": "Processes notes or MIDI as a patchable domain, not only as I/O." },
+    "export": { "label": "export", "definition": "Emits an artifact that runs somewhere else — a plugin, firmware, source code." },
+    "encap": { "label": "encap", "definition": "Users can build a reusable module with its own interface, not merely copy a group of modules." },
+    "open": { "label": "open", "definition": "Open-source licence on the system itself. Module ecosystems may differ." }
+  },
+
+  "facet_states": {
+    "yes": { "glyph": "●", "word": "full" },
+    "partial": { "glyph": "◐", "word": "partial" },
+    "no": { "glyph": "○", "word": "none" },
+    "unknown": { "glyph": "?", "word": "unknown" }
+  },
+
+  "evidence": {
+    "verified": { "short": "chk", "definition": "Checked against a vendor page, official documentation, or another primary source. Requires a source URL." },
+    "reported": { "short": "rep", "definition": "Reported by press, a maintainer's blog, or a forum thread. Requires a source URL." },
+    "unverified": { "short": "unv", "definition": "Asserted from memory or general knowledge, not checked. Must NOT carry a source URL — if you have one, the claim is verified or reported." }
+  },
+
+  "domains": {
+    "audio": { "label": "snd", "definition": "Generates or processes sound." },
+    "image": { "label": "vis", "definition": "Generates or processes images." },
+    "midi": { "label": "midi", "definition": "Takes notes in, sends notes out, or both. See the claims for which." }
+  },
+
+  "platforms": {
+    "mac": { "label": "mac" },
+    "win": { "label": "win" },
+    "linux": { "label": "linux" },
+    "ipad": { "label": "ipad" },
+    "pi": { "label": "pi" },
+    "web": { "label": "web" },
+    "embed": { "label": "embedded" },
+    "engine": { "label": "engine" }
+  },
+
+  "nicety_themes": {
+    "inspection": { "label": "Seeing the signal", "definition": "Ways the system shows you what is actually happening in the patch." },
+    "hotswap": { "label": "Changing things while they run", "definition": "Whether the patch can be rewired without stopping, and what that costs." },
+    "mapping": { "label": "Binding controls", "definition": "How a control gets attached to a parameter." },
+    "reuse": { "label": "Making a thing reusable", "definition": "How work is packaged so it can be used again or by someone else." },
+    "variation": { "label": "Variation and chance", "definition": "Randomisation, morphing, locking, and other ways of moving through a patch space." },
+    "timing": { "label": "Timing resolution", "definition": "The granularity at which events and modulation actually land." },
+    "access": { "label": "Where you sit while patching", "definition": "The physical and interface circumstances of use — screen, browser, touch, none." },
+    "tuning": { "label": "Pitch and tuning", "definition": "How pitch is organised, including microtonal and non-12-EDO support." }
+  }
+}
