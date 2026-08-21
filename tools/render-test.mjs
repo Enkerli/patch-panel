@@ -34,6 +34,6 @@ const checks = {
 for (const [k, v] of Object.entries(checks)) console.log(`  ${k}: ${v}`);
 console.log("  count line:", els.count.textContent);
 console.log("  stats line:", els.stats.innerHTML.replace(/<[^>]+>/g, ""));
-const fail = checks["specimens rendered"] !== 46 || checks["jack badges"] !== 46 * 4;
+const fail = checks["specimens rendered"] !== 47 || checks["jack badges"] !== 47 * 4;
 console.log(fail ? "\nRENDER TEST FAILED" : "\nRender test passed.");
 process.exit(fail ? 1 : 0);

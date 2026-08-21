@@ -1103,6 +1103,68 @@
       ]
     },
     {
+      "id": "pd-forks",
+      "name": "The Pd forks (Purr Data, Pd-L2Ork)",
+      "developer": "Steiner, Bukvic, Wilkes",
+      "year": "2004–",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi",
+        "image"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "Not another Pd, but the question of who keeps the externals. The extended lineage bundles the library; vanilla ships none and points at a package manager instead. That difference decides whether a ten-year-old patch still opens.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "The lineage",
+          "text": "Purr Data, by Jonathan Wilkes, is based on Pd-l2ork, by Ico Bukvic, which is based on Pd-extended, by Hans-Christoph Steiner. The licence file is where that descent is written down.",
+          "evidence": "verified",
+          "source": "https://github.com/agraef/purr-data/blob/master/LICENSE.md"
+        },
+        {
+          "label": "A stratified licence",
+          "text": "The Pd core is 3-clause BSD, the fork layer above it is GPLv3, and each bundled external carries its own terms — mostly BSD variants or the GPL. The licence has the shape of the compilation.",
+          "evidence": "verified",
+          "source": "https://github.com/agraef/purr-data/blob/master/LICENSE.md"
+        },
+        {
+          "label": "What's bundled",
+          "text": "Abstractions, externals and Gem ship inside the package rather than being fetched. Bundling is the whole job of this branch of the family.",
+          "evidence": "verified",
+          "source": "https://github.com/agraef/purr-data/blob/master/LICENSE.md"
+        },
+        {
+          "label": "Vanilla's other route",
+          "text": "Vanilla ships no external libraries at all, and instead includes an interface for searching and installing ones that other developers maintain and package.",
+          "evidence": "verified",
+          "source": "https://github.com/agraef/purr-data"
+        },
+        {
+          "label": "Deken",
+          "text": "That interface is deken, a package manager for Pd externals whose packages live on puredata.info and install from the Help menu. Custody moved from a bundle to an index.",
+          "evidence": "verified",
+          "source": "https://github.com/pure-data/deken"
+        },
+        {
+          "label": "Why it's here",
+          "text": "The axis is custody, not features. A notation is only portable while someone ships the externals, and this is the cabinet's one record of what happens when that job changes hands.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
       "id": "plugdata",
       "name": "plugdata",
       "developer": "Timothy Schoen",
