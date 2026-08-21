@@ -66,9 +66,9 @@ function header() {
     .join("");
 
   $("keys").innerHTML =
-    `<div class="key"><h4>Evidence</h4><ul>${ev}</ul></div>` +
-    `<div class="key"><h4>Facets</h4><ul>${facets}</ul></div>` +
-    `<div class="key"><h4>States — read the glyph, not the colour</h4><ul>${states}</ul></div>`;
+    `<div class="key"><h3>Evidence</h3><ul>${ev}</ul></div>` +
+    `<div class="key"><h3>Facets</h3><ul>${facets}</ul></div>` +
+    `<div class="key"><h3>States — read the glyph, not the colour</h3><ul>${states}</ul></div>`;
 }
 
 /* ---------- filters ---------- */
@@ -96,13 +96,20 @@ function controls() {
 }
 
 /* ---------- evidence badge ---------- */
-function badge(evidence, source) {
+function badge(evidence, source, what) {
   const short = VOCAB.evidence[evidence]?.short ?? "?";
   const cls = `ev ev-${evidence[0]}`;
   const title = VOCAB.evidence[evidence]?.definition ?? "";
+  /* Every one of these reads "chk"/"rep"/"unv" on screen, which is no use as a
+     link name. The context goes in hidden text *inside* the element rather than
+     an aria-label, so the accessible name still contains the visible word —
+     speech-input users can say what they see (WCAG 2.5.3). */
+  const ctx = what ? ` for ${what}` : "";
   return source
-    ? `<a class="${cls}" href="${esc(source)}" target="_blank" rel="noopener" title="${esc(title)}">${short}</a>`
-    : `<span class="${cls}" title="${esc(title)}">${short}</span>`;
+    ? `<a class="${cls}" href="${esc(source)}" target="_blank" rel="noopener" title="${esc(title)}">${short}<span class="vh"> — ${esc(
+        evidence
+      )} source${esc(ctx)}, opens in a new tab</span></a>`
+    : `<span class="${cls}" title="${esc(title)}">${short}<span class="vh"> — ${esc(evidence)}${esc(ctx)}</span></span>`;
 }
 
 /* ---------- specimen list ---------- */
@@ -135,22 +142,32 @@ function render() {
           .map((k) => {
             const st = s.facets[k];
             const { glyph, word } = VOCAB.facet_states[st];
-            return `<span class="jack j-${k} ${st}" title="${esc(VOCAB.facets[k].label)}: ${word}"
-              aria-label="${esc(VOCAB.facets[k].label)} ${word}"><span class="st" aria-hidden="true">${glyph}</span>${esc(
+            /* The state used to ride on aria-label, which AT may ignore on a
+               roleless span, and on title, which touch users never see. It is
+               real hidden text now; the glyph stays decorative. */
+            return `<span class="jack j-${k} ${st}" title="${esc(VOCAB.facets[k].label)}: ${word}"><span class="st" aria-hidden="true">${glyph}</span>${esc(
               VOCAB.facets[k].label
-            )}</span>`;
+            )}<span class="vh"> ${esc(word)}</span></span>`;
           })
           .join("");
         const claims = s.claims
-          .map((c) => `<div class="claim"><dt>${esc(c.label)}</dt><dd>${esc(c.text)}${badge(c.evidence, c.source)}</dd></div>`)
+          .map(
+            (c) =>
+              `<div class="claim"><dt>${esc(c.label)}</dt><dd>${esc(c.text)}${badge(
+                c.evidence,
+                c.source,
+                `${c.label}, ${s.name}`
+              )}</dd></div>`
+          )
           .join("");
         const nice = s.niceties.length
-          ? `<div class="nice"><h5>Niceties</h5>${s.niceties
+          ? `<div class="nice"><h3>Niceties</h3>${s.niceties
               .map(
                 (n) =>
                   `<div><em>${esc(VOCAB.nicety_themes[n.theme]?.label ?? n.theme)}</em>${esc(n.text)}${badge(
                     n.evidence,
-                    n.source
+                    n.source,
+                    `${VOCAB.nicety_themes[n.theme]?.label ?? n.theme}, ${s.name}`
                   )}</div>`
               )
               .join("")}</div>`
@@ -180,7 +197,9 @@ function cabinet() {
       (k) =>
         `<div class="theme"><h3>${esc(VOCAB.nicety_themes[k].label)}</h3>` +
         by[k]
-          .map(([s, n]) => `<div><b>${esc(s.name)}</b> — ${esc(n.text)}${badge(n.evidence, n.source)}</div>`)
+          .map(
+            ([s, n]) => `<div><b>${esc(s.name)}</b> — ${esc(n.text)}${badge(n.evidence, n.source, s.name)}</div>`
+          )
           .join("") +
         `</div>`
     )

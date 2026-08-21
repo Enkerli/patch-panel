@@ -1935,7 +1935,7 @@
           "evidence": "unverified"
         },
         {
-          "label": "Difference from the cohort",
+          "label": "Difference from cohort",
           "text": "These host plugins in a graph but provide almost no primitives of their own. MNodes and Msh do both — a module library and a plugin host — which is what makes them new rather than another patchbay.",
           "evidence": "unverified"
         },
