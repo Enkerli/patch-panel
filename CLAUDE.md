@@ -84,6 +84,21 @@ specific yet.
 `facets` summarise the claims beneath them. Don't mark `export: "yes"` unless a claim below says
 what it exports.
 
+## Landing changes
+
+**Small changes go straight to `main`** — the owner asked for this on 2026-08-21, so no
+branch and no pull request. CI runs on pushes to `main` as well as on pull requests, so a
+direct push is still checked; run both tools locally first regardless.
+
+Small means: self-contained, both checks green, and it doesn't change what the cabinet
+*claims*. Typos, style, tooling, a single sourced correction, an accessibility or rendering
+fix — push them.
+
+Open a pull request for anything else: adding or removing a specimen (the render-test counts
+change too), vocabulary or schema terms, a topology, a bulk pass over the evidence tags, or
+anything where the diff is easier to judge whole than as a commit message. When in doubt,
+a pull request costs one round trip; an unwanted commit on `main` costs a revert.
+
 ## Before every commit
 
 ```sh
