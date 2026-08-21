@@ -11,8 +11,8 @@ session doesn't reinvent them.
 ## Current state
 
 Run `node tools/validate.mjs` first, every session, to see where things stand. As of v0.5.0:
-44 specimens, 186 evidence rows (153 claims + 33 niceties), 59 of them unverified (32%),
-12 warnings. Topology split: graph 27 · rack 7 · matrix 2 · code 4 · format 4.
+46 specimens, 197 evidence rows (164 claims + 33 niceties), 61 of them unverified (31%),
+12 warnings. Topology split: graph 28 · rack 7 · matrix 2 · code 5 · format 4.
 
 Every remaining warning is `every claim rests on recollection`; the licence column was cleared
 on 2026-08-21.
@@ -109,8 +109,8 @@ node tools/render-test.mjs  # renders app.js headlessly against the real data
 **Warnings are the backlog and are expected. Errors are not.** Don't "fix" a warning by
 weakening a claim or deleting a licence row — the warnings name the open jobs.
 
-`tools/render-test.mjs` hard-codes the expected specimen count (`44`, twice — once directly and
-once as `44 * 4` for the facet badges). Adding or removing a specimen means updating both.
+`tools/render-test.mjs` hard-codes the expected specimen count (`46`, twice — once directly and
+once as `46 * 4` for the facet badges). Adding or removing a specimen means updating both.
 
 ## Style
 
