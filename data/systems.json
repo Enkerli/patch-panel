@@ -1,6 +1,6 @@
 {
   "version": "0.5.0",
-  "updated": "2026-08-20",
+  "updated": "2026-08-21",
   "systems": [
     {
       "id": "synthedit",
@@ -313,8 +313,9 @@
         },
         {
           "label": "Licence",
-          "text": "BSD-style. Confirm at source.",
-          "evidence": "unverified"
+          "text": "The Standard Improved BSD License, a three-clause BSD variant, copyright Miller Puckette and others.",
+          "evidence": "verified",
+          "source": "https://github.com/pure-data/pure-data/blob/master/LICENSE.txt"
         }
       ],
       "niceties": [
@@ -469,6 +470,11 @@
           "text": "The Reaktor-hosted NMS, launched April 2026, is discontinued; Karst is the standalone successor, free to backers.",
           "evidence": "reported",
           "source": "https://synthanatomy.com/2026/07/karst-is-tim-exile-s-own-reaktor-style-modular-audio-environment.html"
+        },
+        {
+          "label": "Licence",
+          "text": "Commercial and closed; sold as a beta purchase, with no licence terms published alongside it.",
+          "evidence": "unverified"
         }
       ],
       "niceties": [
@@ -582,6 +588,18 @@
           "text": "Users report MIDI being effectively USB-only in practice.",
           "evidence": "reported",
           "source": "https://www.elektronauts.com/t/raspberry-pi-patchbox-os-modep/213393"
+        },
+        {
+          "label": "Licence",
+          "text": "MOD-UI, the web interface it is built on, is AGPLv3.",
+          "evidence": "verified",
+          "source": "https://github.com/moddevices/mod-ui/blob/master/LICENSE"
+        },
+        {
+          "label": "Licence, host",
+          "text": "MOD-HOST, the LV2 host underneath it, is GPLv3.",
+          "evidence": "verified",
+          "source": "https://github.com/moddevices/mod-host/blob/master/COPYING"
         }
       ],
       "niceties": [
@@ -837,8 +855,9 @@
         },
         {
           "label": "Licence",
-          "text": "Open source. Confirm at source.",
-          "evidence": "unverified"
+          "text": "GPLv3, covering the Pd-based framework itself.",
+          "evidence": "verified",
+          "source": "https://github.com/TheTechnobear/Orac/blob/master/LICENSE"
         }
       ],
       "niceties": [
@@ -1006,8 +1025,15 @@
         },
         {
           "label": "Licence",
-          "text": "GPL compiler; generated code remains the author's. The cell that matters most for anyone shipping — confirm at source.",
-          "evidence": "unverified"
+          "text": "The compiler is under the GNU Lesser GPL, version 2.1 or later.",
+          "evidence": "verified",
+          "source": "https://github.com/grame-cncm/faust/blob/master/COPYING.txt"
+        },
+        {
+          "label": "Generated code",
+          "text": "The libraries grant an explicit exception to the LGPL: compiled output may be released under any licence you choose, commercial or closed included.",
+          "evidence": "verified",
+          "source": "https://github.com/grame-cncm/faustlibraries/blob/master/basics.lib"
         }
       ],
       "niceties": [
@@ -1276,8 +1302,9 @@
         },
         {
           "label": "Licence",
-          "text": "BSD-family, inherited from Pd. Confirm at source.",
-          "evidence": "unverified"
+          "text": "The Standard Improved BSD License, the same terms Pd itself carries.",
+          "evidence": "verified",
+          "source": "https://github.com/libpd/libpd/blob/master/LICENSE.txt"
         }
       ],
       "niceties": [
@@ -1318,8 +1345,9 @@
         },
         {
           "label": "Licence",
-          "text": "Open hardware and software.",
-          "evidence": "unverified"
+          "text": "Software under LGPL 3.0; the hardware designs under CC BY-SA 3.0.",
+          "evidence": "verified",
+          "source": "https://github.com/BelaPlatform/Bela/blob/master/LICENSE"
         }
       ],
       "niceties": []
@@ -1456,7 +1484,8 @@
         {
           "label": "Licence",
           "text": "GPLv3.",
-          "evidence": "unverified"
+          "evidence": "verified",
+          "source": "https://github.com/BespokeSynth/BespokeSynth/blob/main/LICENSE"
         }
       ],
       "niceties": [
@@ -1911,8 +1940,20 @@
           "evidence": "unverified"
         },
         {
-          "label": "Licence",
-          "text": "Mixed: Carla and Element are GPL, the rest proprietary.",
+          "label": "Licence, Carla",
+          "text": "GPL version 2 or later.",
+          "evidence": "verified",
+          "source": "https://github.com/falkTX/Carla"
+        },
+        {
+          "label": "Licence, Element",
+          "text": "GPL-3.0-or-later, declared through REUSE.",
+          "evidence": "verified",
+          "source": "https://github.com/kushview/Element/blob/main/LICENSES/GPL-3.0-or-later.txt"
+        },
+        {
+          "label": "Licence, the rest",
+          "text": "Bidule, Patchwork and Metaplugin are proprietary.",
           "evidence": "unverified"
         }
       ],
@@ -2030,8 +2071,9 @@
         },
         {
           "label": "Licence",
-          "text": "Open specification.",
-          "evidence": "unverified"
+          "text": "The COPYING file carries the ISC licence — permissive, with attribution the only condition.",
+          "evidence": "verified",
+          "source": "https://gitlab.com/lv2/lv2/-/blob/main/COPYING"
         }
       ],
       "niceties": []
@@ -2064,6 +2106,12 @@
           "evidence": "unverified"
         },
         {
+          "label": "Mechanism",
+          "text": "A plug-in ships as an app extension inside a containing app, with an audio unit and its own interface. Supported from iOS 9 and macOS 10.11.",
+          "evidence": "verified",
+          "source": "https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/AudioUnit.html"
+        },
+        {
           "label": "Licence",
           "text": "Proprietary Apple format.",
           "evidence": "unverified"
@@ -2088,13 +2136,14 @@
         "midi": "no",
         "export": "yes",
         "encap": "no",
-        "open": "no"
+        "open": "partial"
       },
       "claims": [
         {
           "label": "What it is",
-          "text": "User oscillators and effects for prologue, minilogue xd, NTS-1 and relatives, written in C/C++ against a fixed slot.",
-          "evidence": "unverified"
+          "text": "User oscillators and effects for prologue, minilogue xd, NTS-1 and NTS-1 mkII, NTS-3, microKORG2 and drumlogue, built as binaries the instrument loads into a fixed unit slot.",
+          "evidence": "verified",
+          "source": "https://github.com/korginc/logue-sdk"
         },
         {
           "label": "Why it's here",
@@ -2103,8 +2152,9 @@
         },
         {
           "label": "Licence",
-          "text": "Proprietary SDK.",
-          "evidence": "unverified"
+          "text": "BSD 3-Clause, copyright KORG INC. The SDK is open; the instruments it builds for are not.",
+          "evidence": "verified",
+          "source": "https://github.com/korginc/logue-sdk/blob/master/LICENSE"
         }
       ],
       "niceties": []

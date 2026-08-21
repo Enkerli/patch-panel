@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/enkerli/patch-panel/blob/main/data/schema.json",
+  "$id": "https://github.com/Enkerli/patch-panel/blob/main/data/schema.json",
   "title": "Patch Panel — modular systems",
   "description": "One record per specimen. Enumerated values must also appear in data/vocabulary.json; tools/validate.mjs checks that the two agree.",
   "type": "object",
