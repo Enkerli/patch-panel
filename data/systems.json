@@ -72,6 +72,65 @@
       ]
     },
     {
+      "id": "houdini",
+      "name": "Houdini (CHOPs and HDAs)",
+      "developer": "SideFX",
+      "year": "1996–",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "image"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "Here for CHOPs: channels of sampled data — audio, control, motion — as an operator family in their own right, and the ancestor of TouchDesigner's. Its digital assets are the clearest case in the cabinet of encapsulation as a distribution format.",
+      "facets": {
+        "midi": "unknown",
+        "export": "yes",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "CHOPs",
+          "text": "Channel operators treat audio and control signals as sampled channels to slice, resample and blend — a fourth way of moving a signal, beside drawn cables, rack slots and a routing grid.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "TouchDesigner's parent",
+          "text": "Derivative was spun out of Side Effects, and TouchDesigner's CHOPs descend from these. The resemblance between the two is inheritance, not convergence.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Digital assets",
+          "text": "An HDA is a .hda or .otl file built in Houdini and dropped into another application, arriving with its parameters exposed for editing there.",
+          "evidence": "verified",
+          "source": "https://github.com/sideeffects/HoudiniEngineForUnreal"
+        },
+        {
+          "label": "Houdini Engine",
+          "text": "Plug-ins load those assets inside Unity and Unreal, where the host edits the parameters and Houdini cooks the result in place rather than baking it first.",
+          "evidence": "verified",
+          "source": "https://github.com/sideeffects/HoudiniEngineForUnity"
+        },
+        {
+          "label": "Licence, the bridge",
+          "text": "The Unity plug-in is BSD-style, copyright Side Effects Software — the bridge into other hosts is open even though what it bridges to is not.",
+          "evidence": "verified",
+          "source": "https://github.com/sideeffects/HoudiniEngineForUnity/blob/master/LICENSE.md"
+        },
+        {
+          "label": "Licence",
+          "text": "Houdini itself is proprietary.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
       "id": "touchdesigner",
       "name": "TouchDesigner",
       "developer": "Derivative",
