@@ -52,6 +52,7 @@ for (const [key, values] of Object.entries(schemaEnums)) {
   if (extra.length) err("vocabulary", `${key} defined in vocabulary.json but rejected by schema: ${extra.join(", ")}`);
 }
 const facetKeys = Object.keys(schema.$defs.system.properties.facets.properties);
+const labelMax = schema.$defs.system.properties.claims.items.properties.label.maxLength;
 const facetsDocumented = Object.keys(vocab.facets ?? {});
 for (const f of facetKeys) {
   if (!facetsDocumented.includes(f)) err("vocabulary", `facet "${f}" is undefined in vocabulary.json`);
@@ -86,6 +87,14 @@ for (const s of data.systems) {
   for (const f of facetKeys) {
     const v = s.facets?.[f];
     if (!schemaEnums.facet_states.includes(v)) err(id, `facet ${f} has invalid state "${v}"`);
+  }
+
+  /* Claim labels read as column headings, not sentences. The schema caps
+     them, but nothing was enforcing that cap — the length is read from the
+     schema here so the two cannot drift apart. */
+  for (const c of s.claims ?? []) {
+    if (typeof c.label === "string" && c.label.length > labelMax)
+      err(id, `claim label "${c.label}" is ${c.label.length} characters, over the ${labelMax} the schema allows`);
   }
 
   /* ---------------------------------------------------------------
