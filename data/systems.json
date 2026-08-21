@@ -2284,6 +2284,67 @@
       "niceties": []
     },
     {
+      "id": "clap",
+      "name": "CLAP",
+      "developer": "Alexandre Bique and contributors",
+      "year": "2021–",
+      "topology": "format",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "The third contract on this rail, and the only one with polyphonic modulation designed into it: an open ABI where notes are a port type and the host is told how many voices there are so it can modulate them apart.",
+      "facets": {
+        "midi": "yes",
+        "export": "yes",
+        "encap": "no",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "A stable binary interface between hosts and plugins: anything compiled against CLAP 1.x loads in any 1.y host, so the contract survives its own versions.",
+          "evidence": "verified",
+          "source": "https://github.com/free-audio/clap"
+        },
+        {
+          "label": "Polyphonic modulation",
+          "text": "A voice-info extension exists so the host can learn how many voices a plugin has — which the specification says matters for polyphonic modulation. Per-voice, not per-parameter.",
+          "evidence": "verified",
+          "source": "https://github.com/free-audio/clap/blob/main/include/clap/ext/voice-info.h"
+        },
+        {
+          "label": "Notes are ports",
+          "text": "A plugin describes its note ports the way it describes audio ports, and each names a dialect — CLAP's own note events, or MIDI. Notes are plumbing here, not a side channel.",
+          "evidence": "verified",
+          "source": "https://github.com/free-audio/clap/blob/main/include/clap/ext/note-ports.h"
+        },
+        {
+          "label": "Threading is specified",
+          "text": "Every method carries a clear thread specification, and a plugin may borrow the host's thread pool rather than starting threads of its own.",
+          "evidence": "verified",
+          "source": "https://github.com/free-audio/clap/blob/main/include/clap/ext/thread-pool.h"
+        },
+        {
+          "label": "Licence",
+          "text": "MIT, copyright 2021 Alexandre Bique.",
+          "evidence": "verified",
+          "source": "https://github.com/free-audio/clap/blob/main/LICENSE"
+        },
+        {
+          "label": "Why it's here",
+          "text": "LV2 grew out of Linux audio and AUv3 out of Apple's platform. This one belongs to neither, and its modulation model is the part a modular reader should care about.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
       "id": "lv2",
       "name": "LV2",
       "developer": "open community",
