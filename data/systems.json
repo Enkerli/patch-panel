@@ -1282,6 +1282,7 @@
         "win",
         "linux",
         "ipad",
+        "android",
         "pi",
         "embed",
         "engine"
@@ -1299,6 +1300,12 @@
           "text": "Named as the embeddable design tool that made interactive audio products possible before hvcc existed to compile the patches away.",
           "evidence": "verified",
           "source": "https://github.com/giuliomoro/hvcc"
+        },
+        {
+          "label": "Mobile targets",
+          "text": "Ships companion repositories for iOS and Android alongside Java, JNI and Objective-C glue — the phones in that sentence are both platforms, not one.",
+          "evidence": "verified",
+          "source": "https://github.com/libpd/libpd"
         },
         {
           "label": "Licence",
@@ -1423,6 +1430,7 @@
         "win",
         "linux",
         "ipad",
+        "android",
         "pi",
         "embed"
       ],
@@ -1878,6 +1886,7 @@
         "midi"
       ],
       "platforms": [
+        "android",
         "ipad"
       ],
       "summary": "A rack of fixed machines on Android and iOS, priced for people who don't have a studio. Belongs in the cabinet for reach, not depth.",

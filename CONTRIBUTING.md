@@ -83,7 +83,9 @@ Raise an issue before adding a topology. Five is already an argument, and a sixt
   at build time. That may be a separate axis, not more rows.
 - **The iPad ecosystem** deserves more than a few entries: AUM, Loopy Pro, Audulus and Mozaic
   together form a modular system whose modules are whole applications.
-- **Android** is represented by one entry.
+- **Android** now has a platform term, but only Caustic 3 is an Android-first specimen; SunVox
+  and libpd merely reach it. What's missing is the narrative entry: Android has no AUv3 or LV2
+  equivalent, so modularity there means whole self-contained apps rather than a module contract.
 - **Licences** are the weakest column overall. Several entries assert an open-source licence
   with no verified source, which the validator warns about on every run.
 

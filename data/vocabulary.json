@@ -65,6 +65,7 @@
     "win": { "label": "win" },
     "linux": { "label": "linux" },
     "ipad": { "label": "ipad" },
+    "android": { "label": "android" },
     "pi": { "label": "pi" },
     "web": { "label": "web" },
     "embed": { "label": "embedded" },

@@ -11,7 +11,7 @@ session doesn't reinvent them.
 ## Current state
 
 Run `node tools/validate.mjs` first, every session, to see where things stand. As of v0.5.0:
-43 specimens, 179 evidence rows (146 claims + 33 niceties), 57 of them unverified (32%),
+43 specimens, 180 evidence rows (147 claims + 33 niceties), 57 of them unverified (32%),
 12 warnings. Topology split: graph 27 · rack 7 · matrix 2 · code 4 · format 3.
 
 Every remaining warning is `every claim rests on recollection`; the licence column was cleared
