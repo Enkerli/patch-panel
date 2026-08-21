@@ -42,7 +42,7 @@
         },
         "platforms": {
           "type": "array",
-          "items": { "enum": ["mac", "win", "linux", "ipad", "pi", "web", "embed", "engine"] },
+          "items": { "enum": ["mac", "win", "linux", "ipad", "android", "pi", "web", "embed", "engine"] },
           "uniqueItems": true
         },
         "summary": {
