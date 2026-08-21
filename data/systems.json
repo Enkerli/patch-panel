@@ -2129,6 +2129,64 @@
       "niceties": []
     },
     {
+      "id": "android-module-contract",
+      "name": "Android's missing module contract",
+      "developer": "Google",
+      "year": "2017–",
+      "topology": "format",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "android"
+      ],
+      "summary": "The negative space on the format rail: the platform where no module contract emerged, so modularity means whole applications rather than modules that travel. It is why Caustic 3 is the only Android-first specimen here.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "no",
+        "open": "partial"
+      },
+      "claims": [
+        {
+          "label": "The gap",
+          "text": "No plugin format equivalent to AUv3 or LV2 took hold, so a module cannot be built once and opened inside someone else's host. What modularity exists is assembled from whole applications.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Routing, by design",
+          "text": "AAudio, the low-latency C API introduced in Android O, is minimal on purpose: its own documentation lists automated routing between audio endpoints among the things it deliberately does not do.",
+          "evidence": "verified",
+          "source": "https://developer.android.com/ndk/guides/audio/aaudio/aaudio"
+        },
+        {
+          "label": "Latency came first",
+          "text": "Oboe picks OpenSL ES on API 16+ or AAudio on API 27+ and tunes latency automatically. The hard problem Google took on was getting audio out fast, not getting it between apps.",
+          "evidence": "verified",
+          "source": "https://github.com/google/oboe"
+        },
+        {
+          "label": "MIDI is the exception",
+          "text": "Apps discover and open MidiDevice objects through MidiManager and address their input and output ports — the one interchange the platform did standardise, and notes travel where audio does not.",
+          "evidence": "verified",
+          "source": "https://developer.android.com/ndk/guides/audio/midi"
+        },
+        {
+          "label": "Licence",
+          "text": "Oboe, Google's own audio library, is Apache 2.0; the store layer above it is not open.",
+          "evidence": "verified",
+          "source": "https://github.com/google/oboe/blob/main/LICENSE"
+        },
+        {
+          "label": "Why it's here",
+          "text": "A boundary marker, like the semi-modular edge: it shows what modularity looks like on a platform with no module boundary to build against, and marks the absence rather than papering over it.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
       "id": "logue-sdk",
       "name": "logue SDK",
       "developer": "KORG",
