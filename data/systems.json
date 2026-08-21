@@ -932,6 +932,64 @@
       ]
     },
     {
+      "id": "csound",
+      "name": "Csound",
+      "developer": "The Csound Developers",
+      "year": "1991– · 7.0 beta",
+      "topology": "code",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux",
+        "ipad",
+        "web",
+        "embed"
+      ],
+      "summary": "The score-driven ancestor: instrument definitions and a note list written in separate languages, computed to a file rather than performed. The first entry here where rendering need not happen in real time.",
+      "facets": {
+        "midi": "unknown",
+        "export": "no",
+        "encap": "unknown",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "Orchestra and score",
+          "text": "One .csd file holds CsInstruments and CsScore as separate sections — the instrument definitions and the note list are distinct languages that meet in a wrapper.",
+          "evidence": "verified",
+          "source": "https://github.com/csound/csound/blob/develop/examples/trapped.csd"
+        },
+        {
+          "label": "Renders to a file",
+          "text": "The options line of its own canonical example writes test.wav rather than opening an audio device. The piece is computed, then listened to.",
+          "evidence": "verified",
+          "source": "https://github.com/csound/csound/blob/develop/examples/trapped.csd"
+        },
+        {
+          "label": "Where it is now",
+          "text": "7.0 is in beta on the develop branch; the 6.x series is end of life with no further releases planned.",
+          "evidence": "verified",
+          "source": "https://github.com/csound/csound"
+        },
+        {
+          "label": "Licence",
+          "text": "LGPL 2.1.",
+          "evidence": "verified",
+          "source": "https://github.com/csound/csound/blob/develop/COPYING"
+        },
+        {
+          "label": "Why it's here",
+          "text": "Opcodes are the modules and wiring them is the work, but the wiring is written rather than drawn — and the result is a rendering job, not a running patch.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
+    },
+    {
       "id": "hvcc-heavy",
       "name": "hvcc / Heavy",
       "developer": "Enzien → Wasted Audio",
@@ -1127,6 +1185,67 @@
           "source": "https://github.com/thouldcroft/plugdata_wiki_wip_tdh/blob/update-UI-overview/Compiling-And-Compilation-Mode.md"
         }
       ]
+    },
+    {
+      "id": "openmusic",
+      "name": "OpenMusic",
+      "developer": "IRCAM",
+      "year": "1998–",
+      "topology": "graph",
+      "domains": [
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "A visual patcher whose graph computes musical material — notation, piano roll, sound — rather than a signal chain. The only entry here where the module operates on symbolic music, and where evaluating the patch is something you ask for rather than something that runs.",
+      "facets": {
+        "midi": "partial",
+        "export": "no",
+        "encap": "partial",
+        "open": "partial"
+      },
+      "claims": [
+        {
+          "label": "What it is",
+          "text": "A visual programming language on Common Lisp: programs are built by dragging and connecting icons that stand for functions and data structures, with visual loops interfacing the Lisp ones.",
+          "evidence": "verified",
+          "source": "https://github.com/openmusic-project/OM6"
+        },
+        {
+          "label": "Modules compute scores",
+          "text": "It handles several representations of one musical process — common notation, MIDI piano-roll, sound signal — so what travels down a connection is musical material, not a signal.",
+          "evidence": "verified",
+          "source": "https://github.com/openmusic-project/OM6"
+        },
+        {
+          "label": "Maquette",
+          "text": "A container for organising material in time, offered as the high-level structure above the patch itself.",
+          "evidence": "verified",
+          "source": "https://github.com/openmusic-project/OM6"
+        },
+        {
+          "label": "Licence",
+          "text": "GPLv3, but built with LispWorks, a commercial Lisp. Contributing without a LispWorks licence means working against a released build — open source that is not freely buildable.",
+          "evidence": "verified",
+          "source": "https://github.com/openmusic-project/OM6"
+        },
+        {
+          "label": "Lineage",
+          "text": "OM# (om-sharp) continues the line as a separate visual environment for computer-assisted composition, also on Common Lisp.",
+          "evidence": "verified",
+          "source": "https://github.com/openmusic-project/om7"
+        },
+        {
+          "label": "Not in real time",
+          "text": "The graph is evaluated to produce material rather than run continuously, which is why nothing here has a latency figure.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": []
     },
     {
       "id": "max-msp-jitter",
