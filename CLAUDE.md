@@ -11,11 +11,18 @@ session doesn't reinvent them.
 ## Current state
 
 Run `node tools/validate.mjs` first, every session, to see where things stand. As of v0.5.0:
-43 specimens, 176 evidence rows (143 claims + 33 niceties), 59 of them unverified (34%),
-15 warnings. Topology split: graph 27 · rack 7 · matrix 2 · code 4 · format 3.
+43 specimens, 179 evidence rows (146 claims + 33 niceties), 57 of them unverified (32%),
+12 warnings. Topology split: graph 27 · rack 7 · matrix 2 · code 4 · format 3.
 
 Every remaining warning is `every claim rests on recollection`; the licence column was cleared
 on 2026-08-21.
+
+Note for sessions run on Claude Code on the web: the environment's network policy blocks nearly
+every vendor domain (kilohearts.com, cherryaudio.com, audulus.com, tracktion.com,
+reasonstudios.com, warmplace.ru, softube.com …) along with Wikipedia, the app stores and the
+synth press. Reachable: github.com, raw.githubusercontent.com, gitlab.com, developer.apple.com.
+The twelve remaining warnings are all specimens whose only primary source sits behind that
+block — they need a session with wider egress, not more effort.
 
 ## Evidence discipline
 
