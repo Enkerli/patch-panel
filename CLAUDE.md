@@ -11,11 +11,12 @@ session doesn't reinvent them.
 ## Current state
 
 Run `node tools/validate.mjs` first, every session, to see where things stand. As of v0.5.0:
-49 specimens, 215 evidence rows (182 claims + 33 niceties), 66 of them unverified (31%),
-12 warnings. Topology split: graph 30 · rack 7 · matrix 2 · code 5 · format 5.
+51 specimens, 246 evidence rows (210 claims + 36 niceties), 55 of them unverified (22%),
+7 warnings. Topology split: graph 32 · rack 7 · matrix 2 · code 5 · format 5.
 
-Every remaining warning is `every claim rests on recollection`; the licence column was cleared
-on 2026-08-21.
+Every remaining warning is `every claim rests on recollection`, and they name the seven
+specimens still to check: reason-rack, audulus, voltage-modular, mela, caustic-3,
+waveform-racks, the-semi-modular-edge. The licence column was cleared on 2026-08-21.
 
 Note for sessions run on Claude Code on the web: the environment's network policy blocks nearly
 every vendor domain (kilohearts.com, cherryaudio.com, audulus.com, tracktion.com,
@@ -109,8 +110,8 @@ node tools/render-test.mjs  # renders app.js headlessly against the real data
 **Warnings are the backlog and are expected. Errors are not.** Don't "fix" a warning by
 weakening a claim or deleting a licence row — the warnings name the open jobs.
 
-`tools/render-test.mjs` hard-codes the expected specimen count (`49`, twice — once directly and
-once as `49 * 4` for the facet badges). Adding or removing a specimen means updating both.
+`tools/render-test.mjs` hard-codes the expected specimen count (`51`, twice — once directly and
+once as `51 * 4` for the facet badges). Adding or removing a specimen means updating both.
 
 ## Style
 
