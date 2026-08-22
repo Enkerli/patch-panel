@@ -199,6 +199,74 @@
       ]
     },
     {
+      "id": "isadora",
+      "name": "Isadora",
+      "developer": "TroikaTronix",
+      "year": "unknown",
+      "topology": "graph",
+      "domains": [
+        "image",
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "mac",
+        "win"
+      ],
+      "summary": "A media-performance patcher whose sound layer is borrowed from the operating system rather than built: the audio actors are macOS Audio Unit wrappers with no Windows equivalent. The only specimen here where the domain a system covers depends on which machine you open it on.",
+      "facets": {
+        "midi": "yes",
+        "export": "no",
+        "encap": "yes",
+        "open": "no"
+      },
+      "claims": [
+        {
+          "label": "Multichannel audio",
+          "text": "Multichannel playback with any source channel routable to any destination, and the routing itself controllable at run time through logic, the Text Formatter, a JavaScript actor, or the text-based routing input on the Sound Player actor.",
+          "evidence": "verified",
+          "source": "https://troikatronix.com/isadora/multichannel-audio/"
+        },
+        {
+          "label": "Platform split",
+          "text": "TroikaTronix staff confirm the core audio actors, and anything prefixed AU, are macOS components with interface wrappers in Isadora, and that no equivalent exists on Windows.",
+          "evidence": "reported",
+          "source": "https://community.troikatronix.com/topic/8523/answered-how-to-use-a-live-sound-on-isadora-v3-x"
+        },
+        {
+          "label": "Analysis is one-way",
+          "text": "Sound Level Watcher actors only see audio arriving through Live Capture, so hearing and analysing the same sound inside one patch requires routing the output back in through a virtual audio device.",
+          "evidence": "reported",
+          "source": "https://community.troikatronix.com/topic/8265/answered-isadora-sound-level-watcher"
+        },
+        {
+          "label": "MIDI",
+          "text": "MIDI notes are both received and sent, with example patches showing Isadora addressing itself over a MIDI loop.",
+          "evidence": "reported",
+          "source": "https://troikatronix.com/version/3-x/page/2/"
+        },
+        {
+          "label": "Encapsulation",
+          "text": "User Actors wrap a group of actors as a reusable unit, distributed as files alongside patches and OSC configurations.",
+          "evidence": "reported",
+          "source": "https://troikatronix.com/version/3-x/page/2/"
+        },
+        {
+          "label": "Licence",
+          "text": "Proprietary. Terms were looked for and not found on a citable page.",
+          "evidence": "unverified"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "reuse",
+          "text": "User Actors are shared as ordinary downloads — a community patch arrives as an actor you drop in, not as a project to dismantle.",
+          "evidence": "reported",
+          "source": "https://troikatronix.com/version/3-x/page/2/"
+        }
+      ]
+    },
+    {
       "id": "video-painter",
       "name": "Video Painter",
       "developer": "Strange Process",
@@ -738,26 +806,53 @@
       "facets": {
         "midi": "no",
         "export": "no",
-        "encap": "no",
+        "encap": "partial",
         "open": "no"
       },
       "claims": [
         {
-          "label": "Topology",
-          "text": "Signal falls through ordered lanes rather than along drawn cables; modulation is assigned, not patched.",
-          "evidence": "unverified"
+          "label": "Snapin hosts",
+          "text": "Three hosts share one module format: Snap Heap for serial and parallel lanes, Multipass for frequency-split processing, and Phase Plant as the synth. The same Snapins also run as ordinary plugins outside all three.",
+          "evidence": "verified",
+          "source": "https://kilohearts.com/docs/snapins"
+        },
+        {
+          "label": "Hosts nest",
+          "text": "Snap Heap loads as a Snapin inside Multipass, Phase Plant or another Snap Heap. In that mode its interface collapses to whichever named macros carry modulation bindings, with the full editor a click away.",
+          "evidence": "verified",
+          "source": "https://kilohearts.com/docs/snap_heap"
+        },
+        {
+          "label": "Lanes",
+          "text": "Seven lanes sit at the heart of Snap Heap for combining and modulating Snapins, routed in series or in parallel.",
+          "evidence": "verified",
+          "source": "https://kilohearts.com/docs/snap_heap"
+        },
+        {
+          "label": "Free tier",
+          "text": "Kilohearts Essentials is a free collection of over thirty Snapins, usable inside any of the hosts.",
+          "evidence": "verified",
+          "source": "https://kilohearts.com/docs/snapins"
         },
         {
           "label": "Licence",
-          "text": "Proprietary, with a free tier of snapins.",
-          "evidence": "unverified"
+          "text": "Proprietary. Snap Heap and the Essentials Snapins are free; the rest are sold individually, in bundles, or through a subscription covering everything.",
+          "evidence": "verified",
+          "source": "https://kilohearts.com/products/snap_heap"
         }
       ],
       "niceties": [
         {
           "theme": "reuse",
           "text": "One snapin format, three hosts. A module bought for Snap Heap works in Multipass and inside Phase Plant — the module is portable across products, which almost nothing else here manages.",
-          "evidence": "unverified"
+          "evidence": "verified",
+          "source": "https://kilohearts.com/docs/snap_heap"
+        },
+        {
+          "theme": "mapping",
+          "text": "Because a host DAW cannot enumerate the parameters of an open modular patch, Kilohearts exposes 64 automation slots: right-click any knob, assign it a slot, and the slot takes the name of the function it now carries.",
+          "evidence": "verified",
+          "source": "https://kilohearts.com/docs/host_plugins"
         }
       ]
     },
@@ -776,28 +871,49 @@
       ],
       "summary": "A rack whose modules all share one idea — a drawn LFO shape applied to a different parameter per module. Constrained enough to be learnable in an afternoon.",
       "facets": {
-        "midi": "no",
+        "midi": "partial",
         "export": "no",
         "encap": "no",
         "open": "no"
       },
       "claims": [
         {
-          "label": "Topology",
-          "text": "Stacked shaper modules in fixed order, each driven by the same editable curve interface.",
-          "evidence": "unverified"
+          "label": "Modules",
+          "text": "Eleven multiband effects — volume, time, drive, filter, crush, noise, pan, width, liquid, reverb and pitch — added from a selection screen, one of each, every one with three-band splitting.",
+          "evidence": "verified",
+          "source": "https://www.cableguys.com/shaperbox"
+        },
+        {
+          "label": "MIDI triggering",
+          "text": "Patterns can be triggered from MIDI in any rhythm, so the rack is played rather than only clocked.",
+          "evidence": "verified",
+          "source": "https://www.cableguys.com/timeshaper"
+        },
+        {
+          "label": "MIDI switching",
+          "text": "With MIDI Switch enabled, notes from C sharp to A load the corresponding Custom Wave slot into the shaper it was saved from, turning the plugin into a performance effect.",
+          "evidence": "verified",
+          "source": "https://downloads.cableguys.com/Cableguys-ShaperBox-3-Manual.pdf?v=3.6"
+        },
+        {
+          "label": "Audio triggering",
+          "text": "All eleven effects can be fired from another sound's transients through the external sidechain input, not only from the host clock.",
+          "evidence": "verified",
+          "source": "https://www.cableguys.com/shaperbox"
         },
         {
           "label": "Licence",
-          "text": "Proprietary.",
-          "evidence": "unverified"
+          "text": "Proprietary. Single shapers from $29, the full bundle $99.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/forum/viewtopic.php?t=588399&start=255"
         }
       ],
       "niceties": [
         {
           "theme": "mapping",
-          "text": "The same drawn curve is the control surface for every module in the rack — learn one gesture, use it everywhere.",
-          "evidence": "unverified"
+          "text": "One drawn curve is the control surface for every module, and the curves copy between shapers — learn the gesture once and it transfers across the whole rack.",
+          "evidence": "verified",
+          "source": "https://www.cableguys.com/shaperbox"
         }
       ]
     },
@@ -850,13 +966,14 @@
       "topology": "rack",
       "domains": [
         "audio",
-        "midi"
+        "midi",
+        "image"
       ],
       "platforms": [
         "ipad",
         "mac"
       ],
-      "summary": "A modular groovebox for iPad that hosts AUv3 plugins as modules — the plugin-as-module move the 2026 desktop cohort is selling, six years earlier, on a touchscreen.",
+      "summary": "A modular groovebox for iPad that hosts AUv3 plugins as modules — the plugin-as-module move the 2026 desktop cohort is selling, six years earlier, on a touchscreen. An optional visual environment makes it two-domain.",
       "facets": {
         "midi": "yes",
         "export": "no",
@@ -866,8 +983,33 @@
       "claims": [
         {
           "label": "Hosts plugins",
-          "text": "AUv3 instruments and effects sit inside the chain.",
-          "evidence": "unverified"
+          "text": "AUv3 instruments, effects and MIDI effects appear as Drambo modules; Drambo itself also runs as an AUv3 instrument, effect and MIDI effect inside another host.",
+          "evidence": "verified",
+          "source": "https://www.beepstreet.com/ios/drambo"
+        },
+        {
+          "label": "Cable-free",
+          "text": "The vendor's own framing: a drag-and-drop workflow with automatic connections, colour-coded modules and compact rack views, where directional flow replaces drawn wires.",
+          "evidence": "verified",
+          "source": "https://www.beepstreet.com/ios/drambo"
+        },
+        {
+          "label": "Visual expansion",
+          "text": "Drambo Visual, an optional in-app purchase, adds a modular graphics environment for real-time visuals tied to sound and sequencing, performance over an external HDMI display, and synchronised audio and video export.",
+          "evidence": "verified",
+          "source": "https://www.beepstreet.com/ios/drambo"
+        },
+        {
+          "label": "Modules",
+          "text": "Over 140 modules spanning oscillators, samplers, physical modelling, filters, MIDI processors, sequencers and maths, with nested custom racks and presets at track, rack and module level.",
+          "evidence": "verified",
+          "source": "https://apps.apple.com/us/app/drambo/id1469365718"
+        },
+        {
+          "label": "Host blind spot",
+          "text": "Drambo exposes no AUv3 parameters to its host, so outside automation runs through MIDI CC mapping instead — a modular has no fixed parameter set to publish.",
+          "evidence": "reported",
+          "source": "https://forum.beepstreet.com/discussion/3034/how-to-control-drambo-as-auv3-from-the-host"
         },
         {
           "label": "Licence",
@@ -925,6 +1067,88 @@
           "text": "The environment and its extension language are the same thing: to write a module you write a Pd patch.",
           "evidence": "verified",
           "source": "https://blokas.io/patchbox-os/"
+        }
+      ]
+    },
+    {
+      "id": "cables-gl",
+      "name": "cables.gl",
+      "developer": "cables / undev",
+      "year": "unknown",
+      "topology": "graph",
+      "domains": [
+        "image",
+        "audio",
+        "midi"
+      ],
+      "platforms": [
+        "web",
+        "mac",
+        "win",
+        "linux"
+      ],
+      "summary": "The browser as a patching environment, MIT-licensed, covering visuals, Web Audio and full MIDI. The distinctive thing is where its limits come from: the browser sets them, capping audio at two channels in and two out and ruling out Syphon and Spout entirely.",
+      "facets": {
+        "midi": "yes",
+        "export": "yes",
+        "encap": "yes",
+        "open": "yes"
+      },
+      "claims": [
+        {
+          "label": "MIDI",
+          "text": "Clock, notes, CC and NRPN are all supported, so external hardware or a DAW connects directly to a patch.",
+          "evidence": "verified",
+          "source": "https://cables.gl/"
+        },
+        {
+          "label": "Audio",
+          "text": "A Web Audio op family covers output to speakers, recording and playback of any stream in the patch, and custom ops can pull in tone.js and use Web Audio nodes directly.",
+          "evidence": "verified",
+          "source": "https://cables.gl/docs/5_writing_ops/webaudio/webaudio"
+        },
+        {
+          "label": "Browser ceiling",
+          "text": "Audio is limited to two inputs and two outputs by browser constraints, and Syphon or Spout sharing is impossible without third-party desktop capture.",
+          "evidence": "verified",
+          "source": "https://cables.gl/docs/faq/technical/technical"
+        },
+        {
+          "label": "Encapsulation",
+          "text": "Subpatch ops turn a group of existing ops into a new op, marked by a border in the graph.",
+          "evidence": "verified",
+          "source": "https://cables.gl/docs/5_writing_ops/patchingops/subpatchops"
+        },
+        {
+          "label": "Export",
+          "text": "Patches export as HTML, an iframe embed, a standalone executable, or a deploy to GitHub Pages or Netlify, with a command-line interface for the same.",
+          "evidence": "unverified"
+        },
+        {
+          "label": "Licence",
+          "text": "MIT, declared in the project manifest.",
+          "evidence": "verified",
+          "source": "https://github.com/cables-gl/cables/blob/master/package.json"
+        },
+        {
+          "label": "Open and offline",
+          "text": "Fully open source since 2024, with offline downloads for macOS on Intel and Apple silicon, Windows, and Linux as an AppImage.",
+          "evidence": "reported",
+          "source": "https://cdm.link/cables-gl-open-offline/"
+        },
+        {
+          "label": "Acknowledged parents",
+          "text": "The project names tooll and vvvv as its inspirations — the desktop patcher tradition arriving in the browser by way of the demoscene rather than by way of Max.",
+          "evidence": "verified",
+          "source": "https://cables.gl/"
+        }
+      ],
+      "niceties": [
+        {
+          "theme": "inspection",
+          "text": "Press e on any op to read its source. Every module in the library is open to inspection from inside the patch, with an edit-on-GitHub link on each documentation page.",
+          "evidence": "verified",
+          "source": "https://cables.gl/docs/faq/technical/technical"
         }
       ]
     },
@@ -1677,27 +1901,42 @@
       "summary": "A modular tracker that runs on almost anything, including hardware nobody else targets. The widest platform span in the cabinet, and the entry that matters most where budgets don't stretch.",
       "facets": {
         "midi": "yes",
-        "export": "no",
+        "export": "partial",
         "encap": "yes",
         "open": "no"
       },
       "claims": [
         {
           "label": "Reach",
-          "text": "Windows, macOS, Linux, iOS, Android, Raspberry Pi and older hardware besides.",
-          "evidence": "unverified"
+          "text": "Windows from 2000 onward, macOS, Linux across x86, x86_64, ARM including Raspberry Pi and ARM64, plus iOS, Android and Windows CE — with the stated aim of running on very old and slow devices.",
+          "evidence": "verified",
+          "source": "https://www.warmplace.ru/soft/sunvox/"
+        },
+        {
+          "label": "Embeddable engine",
+          "text": "The SunVox Library is the engine without its interface, free to use in other products including commercial ones, with a Web and JS build and inclusion in the Pixilang language.",
+          "evidence": "verified",
+          "source": "https://warmplace.ru/soft/sunvox/sunvox_lib.php"
+        },
+        {
+          "label": "First release",
+          "text": "April 2008.",
+          "evidence": "reported",
+          "source": "https://en.wikipedia.org/wiki/SunVox"
         },
         {
           "label": "Licence",
-          "text": "Proprietary; free on some platforms.",
-          "evidence": "unverified"
+          "text": "Proprietary, and free on every supported platform except Android and iOS.",
+          "evidence": "verified",
+          "source": "https://www.warmplace.ru/soft/sunvox/"
         }
       ],
       "niceties": [
         {
           "theme": "reuse",
-          "text": "MetaModules wrap a whole patch as one module with its own controllers — encapsulation on a platform where screen space is the scarcest resource.",
-          "evidence": "unverified"
+          "text": "A MetaModule is a full copy of SunVox inside a single module, so projects nest recursively. Saved as a .sunsynth file it becomes a cross-platform instrument to pass around.",
+          "evidence": "verified",
+          "source": "https://warmplace.ru/soft/sunvox/manual.php"
         }
       ]
     },
@@ -2028,19 +2267,34 @@
       },
       "claims": [
         {
-          "label": "The premise",
-          "text": "Licensed emulations of named Eurorack modules from real manufacturers, rather than generic equivalents.",
-          "evidence": "unverified"
+          "label": "Licensed modules",
+          "text": "Built with Doepfer, with seven component-modelled Doepfer modules in the base set plus around fifty stock utilities. Premium add-ons carry Buchla, Intellijel, 4ms and Mutable Instruments branding under licence.",
+          "evidence": "verified",
+          "source": "https://www.softube.com/us/plug-ins/modular"
         },
         {
-          "label": "Consequence",
-          "text": "The catalogue is bounded by commercial agreements, not by what the community wants to build — the opposite constraint to Cardinal's licence filter.",
-          "evidence": "unverified"
+          "label": "The claim",
+          "text": "Softube describes it as the only Eurorack software offering licensed modules. The distinguishing feature is the agreement, not the architecture.",
+          "evidence": "verified",
+          "source": "https://www.softube.com/us/plug-ins/modular"
+        },
+        {
+          "label": "Catalogue stalled",
+          "text": "Users noted in 2023 that no new licensed Eurorack modules had appeared in over three years, and that recent additions were breakouts from Softube's own synth emulations — the licensing constraint showing up as a stalled catalogue.",
+          "evidence": "reported",
+          "source": "https://www.kvraudio.com/forum/viewtopic.php?t=601276"
+        },
+        {
+          "label": "MIDI",
+          "text": "Host integration runs through virtual MIDI, CV and clock converter modules rather than a MIDI domain inside the patch.",
+          "evidence": "reported",
+          "source": "https://www.soundonsound.com/reviews/softube-modular"
         },
         {
           "label": "Licence",
-          "text": "Proprietary, per-module purchases.",
-          "evidence": "unverified"
+          "text": "Proprietary, sold per module, with iLok account authorisation required though no physical key.",
+          "evidence": "reported",
+          "source": "https://www.pluginboutique.com/product/1-Instruments/4-Synth/2824-Modular"
         }
       ],
       "niceties": []

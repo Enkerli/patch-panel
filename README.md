@@ -1,6 +1,6 @@
 # Patch Panel
 
-A cabinet of software modular systems for sound and image — 49 specimens, arranged so
+A cabinet of software modular systems for sound and image — 51 specimens, arranged so
 the differences show rather than to be exhaustive.
 
 **[Browse it →](https://enkerli.github.io/patch-panel/)**
